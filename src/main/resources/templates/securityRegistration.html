@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Add new User with security</title>
+    <style>
+        #name, #role, #password{
+            margin:10px 10px 10px 10px;
+            font-family: sans-serif;
+            font-size: 0.9em;
+        }
+        #but_record{
+            margin-left: 10px;
+        }
+    </style>
 </head>
 <body>
-
+<form method="post">
+    <label for="name">
+    <input type="text" id="name" name="userName" placeholder="Імя"><br>
+    </label>
+    <label for="role">
+    <input type="text" id="role" name="role" placeholder="Роль"><br>
+    </label>
+    <label for="password">
+    <input type="text" id="password" name="password" placeholder="Пароль"><br>
+    </label>
+    <input type="submit" id="but_record" placeholder="Записати">
+</form>
 </body>
 </html>
