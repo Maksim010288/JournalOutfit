@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Journal job description</title>
+    <link type="text/css" rel="stylesheet" href="/style/journal.css">
+    <style>
+
+        body {
+            background: antiquewhite;
+        }
+
+        #recordForm {
+            width: 50%;
+            height: 25%;
+            margin-left: 25%;
+            background: aquamarine;
+            padding: 20px 20px 20px 20px;
+            display: block;
+        }
+
+        .inp, .inpDate, .inpNum, .inp_etc {
+            width: 15%;
+            height: 30px;
+            margin-left: 50px;
+            margin-bottom: 40px;
+            font-family: sans-serif;
+            font-size: 1.3ch;
+        }
+
+        .mayster{
+            position: relative;
+            top: -60px;
+            left: 20px;
+        }
+
+        .area {
+            margin-left: 50px;
+        }
+
+        #but {
+            width: 100px;
+            height: 50px;
+            border-radius: 100%;
+            background: red;
+            color:white;
+            position: relative;
+            left: 80%;
+            top:-40px;
+        }
+
+        h1, .tab_search {
+            text-align: center;
+            font-family: sans-serif;
+            color: darkgoldenrod;
+        }
+    </style>
+</head>
+<body>
+<div th:each="ch:${check}">
+    <p th:text="${ch}"></p>
+</div>
+<form action="/journal/homepage" method="get">
+    <label for="onHomepage">
+        <input type="submit" id="onHomepage" value="На головну">
+    </label>
+</form>
+<h1>Створити запис</h1>
+<div id="recordForm">
+    <form action="/journal/get" method="post">
+        <input class="inp" type="number" name="numberName" placeholder="Номер наряда">
+        <input class="inpNum" type="number" name="number_etc" placeholder="Номер ТП">
+        <input class="inpDate" type="date" name="date" placeholder="Дата">
+        <select class="inp_etc" name="type_etc">
+            <option>ЗТП</option>
+            <option>КТП</option>
+            <option>РП</option>
+        </select>
+        <textarea class="area" name="description" cols="50" rows="4"
+                  placeholder="роботи які виконували"></textarea>
+        <select class="mayster" name="performer">
+            <option>Василь ЛУЩ</option>
+            <option>Альберт РЕВЯКОВ</option>
+        </select>
+        <button id="but" type="submit" name="record">ЗАПИСАТИ</button>
+    </form>
+</div>
+<form action="/journal/get" method="get">
+    <button type="submit" class="update">ОБНОВИТИ</button>
+    <div>
+        <table style=" width: 1320px; border: 1px solid black;">
+            <thead style="background: lightskyblue;">
+            <tr style="border: 1px solid black">
+                <th>№ п/п</th>
+                <th>Номер наряда</th>
+                <th>Дата виконання</th>
+                <th>Диспетчерський номер ТП</th>
+                <th>Опис роботи</th>
+                <th>Виконавець</th>
+            </tr>
+            </thead>
+            <tr class="updateJournal" th:each="en : ${entity}">
+                <td th:text="${en.getId()}"></td>
+                <td class="td" th:text="${en.getNumberOutfit()}"></td>
+                <td class="td" th:text="${en.getDate()}"></td>
+                <td class="td" th:text="${en.getDispatcherNameEts()}"></td>
+                <td class="td" th:text="${en.getJobDescription()}"></td>
+                <td class="td" th:text="${en.getPerformer()}"></td>
+            </tr>
+        </table>
+    </div>
+</form>
+</body>
+</html>
