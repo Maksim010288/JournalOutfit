@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import voe.company.OutfitsCompletedOfLog.CheckOut;
 import voe.company.OutfitsCompletedOfLog.entity.JournalEntity;
 import voe.company.OutfitsCompletedOfLog.service.MagazineService;
 
@@ -75,9 +76,11 @@ public class JournalController {
                               @RequestParam String description,
                               @RequestParam String performer,
                               Model model) {
+        Exception checkOut = new CheckOut().check(numberName, date, type_etc, number_etc, description, performer);
         JournalEntity entity = new JournalEntity(
                 numberName, date, type_etc,
                 number_etc, description, performer);
+        model.addAttribute("check", checkOut);
         journalService.addNewEntry(entity);
         return "journal";
     }
