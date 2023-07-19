@@ -9,5 +9,4 @@ public class OutfitsCompletedOfLogApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(OutfitsCompletedOfLogApplication.class, args);
 	}
-
 }
