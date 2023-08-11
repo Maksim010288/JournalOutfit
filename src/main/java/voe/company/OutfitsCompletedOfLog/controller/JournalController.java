@@ -1,11 +1,13 @@
 package voe.company.OutfitsCompletedOfLog.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import voe.company.OutfitsCompletedOfLog.CheckOut;
 import voe.company.OutfitsCompletedOfLog.entity.JournalEntity;
 import voe.company.OutfitsCompletedOfLog.service.MagazineService;
@@ -49,6 +51,11 @@ public class JournalController {
         return "redirect:/journal/get";
     }
 
+    @GetMapping("/delete")
+    public String delete() {
+        return "delete";
+    }
+
     @GetMapping("/deleteId")
     private String deleteById(@RequestParam(defaultValue = "0") String id_del) {
         journalService.deleteJournalById(Long.parseLong(id_del));
@@ -76,7 +83,13 @@ public class JournalController {
                               @RequestParam String description,
                               @RequestParam String performer,
                               Model model) {
-        Exception checkOut = new CheckOut().check(numberName, date, type_etc, number_etc, description, performer);
+        Exception checkOut = new CheckOut().check(
+                numberName,
+                date,
+                type_etc,
+                number_etc,
+                description,
+                performer);
         JournalEntity entity = new JournalEntity(
                 numberName, date, type_etc,
                 number_etc, description, performer);
@@ -96,8 +109,4 @@ public class JournalController {
         return "homepage";
     }
 
-    @GetMapping("/delete")
-    public String delete() {
-        return "delete";
-    }
 }

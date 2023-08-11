@@ -1,7 +1,5 @@
 package voe.company.OutfitsCompletedOfLog;
 
-import org.springframework.web.bind.annotation.RequestParam;
-
 public class CheckOut {
 
     public Exception check(Integer numberName,

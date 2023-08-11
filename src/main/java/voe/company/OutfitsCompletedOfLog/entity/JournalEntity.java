@@ -2,6 +2,7 @@ package voe.company.OutfitsCompletedOfLog.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.kafka.listener.MessageListenerContainer;
 
 @Entity
 @Table(name = "log_of_registration_of_outfits")
