@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import voe.company.OutfitsCompletedOfLog.JournalException;
 import voe.company.OutfitsCompletedOfLog.entity.JournalEntity;
-import voe.company.OutfitsCompletedOfLog.kafka.Producer;
+
 import voe.company.OutfitsCompletedOfLog.repository.CrudRepository;
 import voe.company.OutfitsCompletedOfLog.repository.MagazineRepository;
 
@@ -18,8 +18,6 @@ public class MagazineService implements CrudRepository {
     private MagazineRepository journalRepository;
     @Autowired
     private JournalException journalException;
-    @Autowired
-    private Producer kafkaProducer;
 
     @Override
     public void save(JournalEntity journal) {
@@ -35,7 +33,7 @@ public class MagazineService implements CrudRepository {
                 journalEntity.getDispatcherNameEts(),
                 journalEntity.getJobDescription(),
                 journalEntity.getPerformer());
-        kafkaProducer.sendMessage(journalEntity.toString());
+       journalRepository.save(entity);
     }
 
     @Override
