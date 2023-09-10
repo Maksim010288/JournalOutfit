@@ -1,6 +1,7 @@
 package voe.company.OutfitsCompletedOfLog.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import voe.company.OutfitsCompletedOfLog.JournalException;
 import voe.company.OutfitsCompletedOfLog.entity.JournalEntity;
@@ -13,15 +14,15 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class MagazineService implements CrudRepository {
+public class MagazineService implements CrudRepository{
     @Autowired
-    private MagazineRepository journalRepository;
+    private MagazineRepository magazineRepository;
     @Autowired
     private JournalException journalException;
 
     @Override
     public void save(JournalEntity journal) {
-        journalRepository.save(journal);
+        magazineRepository.save(journal);
     }
 
     @Override
@@ -33,24 +34,24 @@ public class MagazineService implements CrudRepository {
                 journalEntity.getDispatcherNameEts(),
                 journalEntity.getJobDescription(),
                 journalEntity.getPerformer());
-       journalRepository.save(entity);
+       magazineRepository.save(entity);
     }
 
     @Override
-    public List<JournalEntity> findAll() {
-        return journalRepository.findAll();
+    public List<JournalEntity> getFindAll() {
+        return magazineRepository.findAll();
     }
 
     @Override
     public Optional<JournalEntity> findById(Long index) {
-        Optional<JournalEntity> entity = journalRepository.findById(index);
+        Optional<JournalEntity> entity = magazineRepository.findById(index);
         journalException.verification(entity);
         return entity;
     }
 
     @Override
     public List<JournalEntity> findBy(String data) {
-        return journalRepository.findAll().stream()
+        return magazineRepository.findAll().stream()
                 .filter(journal -> journal.getNumberOutfit().equals(Integer.parseInt(data)) ||
                         journal.getDispatcherNameEts().equals(Integer.parseInt(data)) ||
                         journal.getDate().equals(data))
@@ -59,11 +60,11 @@ public class MagazineService implements CrudRepository {
 
     @Override
     public void deleteJournalById(Long index) {
-        journalRepository.deleteById(index);
+        magazineRepository.deleteById(index);
     }
 
     @Override
     public void deleteAll() {
-        journalRepository.deleteAll();
+        magazineRepository.deleteAll();
     }
 }
