@@ -27,20 +27,13 @@ public class RegistrationPersonController {
     }
 
     @PostMapping("person/add")
-    public String addPerson(@RequestParam String firstName,
-                            @RequestParam String lastName,
-                            @RequestParam String email,
+    public String addPerson(@RequestParam String email,
                             @RequestParam String password,
                             @RequestParam String role,
                             Model model){
-        UsersEntity entity = new UsersEntity();
-        entity.setFirstName(firstName);
-        entity.setLastName(lastName);
-        entity.setEmail(email);
-//        entity.setPassword(usersRoleService.passwordEncoder(password));
-        entity.setPassword(password);
-        entity.setRole(role);
+        UsersEntity entity = new UsersEntity(email, password, role);
         model.addAttribute("outInfo", usersRoleService.checkUser(entity));
+        usersRoleService.createNewUser(entity);
         return "registration";
     }
 }
