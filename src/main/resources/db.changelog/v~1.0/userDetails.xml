@@ -6,28 +6,20 @@
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
     <changeSet id="02" author="Maksim Bazyk">
-        <createTable tableName="outfits_journal">
+        <createTable tableName="user_details">
             <column name="id" type="integer" autoIncrement="true">
                 <constraints primaryKeyName="id_outfit"/>
             </column>
-            <column name="number" type="integer">
+            <column name="email" type="varchar(30)">
                 <constraints nullable="true"/>
             </column>
-            <column name="date" type="varchar(100)">
+            <column name="password" type="varchar(100)">
                 <constraints nullable="true"/>
             </column>
-            <column name="dispatcher_num_eac" type="integer">
-                <constraints nullable="true"/>
-            </column>
-            <column name="type_eac" type="varchar(20)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="job_description" type="varchar(150)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="performer" type="varchar(30)">
+            <column name="role" type="varchar(15)">
                 <constraints nullable="true"/>
             </column>
         </createTable>
     </changeSet>
+
 </databaseChangeLog>
