@@ -10,7 +10,7 @@ public interface CrudRepository {
     void addNewEntry(JournalEntity journal);
     void deleteJournalById(Long index);
     void deleteAll();
-    List<JournalEntity> findAll();
+    List<JournalEntity> getFindAll();
     List<JournalEntity> findBy(String data);
     Optional<JournalEntity> findById(Long index);
 }
