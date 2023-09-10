@@ -2,10 +2,11 @@ package voe.company.OutfitsCompletedOfLog.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.security.access.prepost.PreAuthorize;
 
-@Entity
-@Table(name = "log_of_registration_of_outfits")
 @Data
+@Entity
+@Table(name ="outfits_journal")
 public class JournalEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,7 +17,6 @@ public class JournalEntity {
     private String date;
     @Column(name = "dispatcher_num_eac")
     private Integer dispatcherNameEts;
-
     @Column(name = "type_eac")
     private String typeEac;
     @Column(name = "job_description")
