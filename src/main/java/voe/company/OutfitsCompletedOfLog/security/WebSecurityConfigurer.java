@@ -38,6 +38,7 @@ public class WebSecurityConfigurer {
                         .requestMatchers("/journal/get").hasRole("ADMIN")
                         .requestMatchers("/journal/deleteAll").hasRole("ADMIN")
                         .requestMatchers("/journal/deleteId").hasRole("ADMIN")
+                        .requestMatchers("/person/add").hasRole("ADMIN")
                         .requestMatchers("/journal/get/by").hasAnyRole("USER", "ADMIN")
                         .anyRequest().authenticated())
                 .formLogin(Customizer.withDefaults());
