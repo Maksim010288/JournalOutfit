@@ -1,10 +1,14 @@
 package voe.company.OutfitsCompletedOfLog.service;
 
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import voe.company.OutfitsCompletedOfLog.entity.UsersEntity;
 import voe.company.OutfitsCompletedOfLog.repository.UserRepository;
+
+import java.util.Collection;
+
 
 @Service
 public class UsersRoleService {
@@ -18,6 +22,10 @@ public class UsersRoleService {
                 passwordEncoder(usersEntity.getPassword()),
                 usersEntity.getRole());
         return userRepository.save(entity);
+    }
+
+    public Collection<UsersEntity> getUsers(){
+        return userRepository.findAll();
     }
 
     private String passwordEncoder(String pass) {
