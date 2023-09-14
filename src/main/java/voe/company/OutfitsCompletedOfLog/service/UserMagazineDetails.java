@@ -9,12 +9,12 @@ import voe.company.OutfitsCompletedOfLog.entity.UsersEntity;
 import java.util.Collection;
 import java.util.Collections;
 
-public class UserMagazineDetailsService implements UserDetails {
+public class UserMagazineDetails implements UserDetails {
 
     private UsersEntity users;
 
     @Autowired
-    public UserMagazineDetailsService(UsersEntity users) {
+    public UserMagazineDetails(UsersEntity users) {
         super();
         this.users = users;
     }
