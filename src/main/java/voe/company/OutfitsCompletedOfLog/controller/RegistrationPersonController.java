@@ -1,11 +1,12 @@
 package voe.company.OutfitsCompletedOfLog.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-import voe.company.OutfitsCompletedOfLog.CheckOut;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import voe.company.OutfitsCompletedOfLog.entity.UsersEntity;
 import voe.company.OutfitsCompletedOfLog.service.UsersRoleService;
 
@@ -35,5 +36,10 @@ public class RegistrationPersonController {
         model.addAttribute("outInfo", usersRoleService.checkUser(entity));
         usersRoleService.createNewUser(entity);
         return "registration";
+    }
+
+    @GetMapping("person/getAllPerson")
+    public String getAllUser(){
+        return usersRoleService.getUsers().toString();
     }
 }
