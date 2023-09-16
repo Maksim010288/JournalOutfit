@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import voe.company.OutfitsCompletedOfLog.entity.UsersEntity;
 import voe.company.OutfitsCompletedOfLog.service.UserDetService;
 
 @Configuration
@@ -28,14 +29,23 @@ public class WebSecurityConfigurerInJdbc{
         return provider;
     }
 
+    public String provider() {
+        UsersEntity users = userDetService.getUsers();
+       return users.getEmail();
+    }
+
     @Bean
     public SecurityFilterChain filterChainJdbc(HttpSecurity http) throws Exception {
        http.csrf().disable()
                .authorizeRequests()
                .requestMatchers("/journal/get")
-               .hasAuthority("ADMIN")
+               .hasAnyAuthority("ADMIN")
+               .requestMatchers("/")
+               .hasAnyAuthority("ADMIN","USER")
                .requestMatchers("/journal/homepage")
-               .hasAuthority("USER")
+               .hasAnyAuthority("ADMIN","USER")
+               .requestMatchers("/journal/get/by")
+               .hasAnyAuthority("ADMIN", "USER")
                .and()
                .formLogin();
        return http.build();

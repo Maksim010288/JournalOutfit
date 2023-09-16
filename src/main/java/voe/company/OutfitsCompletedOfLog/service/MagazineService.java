@@ -1,9 +1,8 @@
 package voe.company.OutfitsCompletedOfLog.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
-import voe.company.OutfitsCompletedOfLog.JournalException;
+import voe.company.OutfitsCompletedOfLog.exeption.JournalException;
 import voe.company.OutfitsCompletedOfLog.entity.JournalEntity;
 
 import voe.company.OutfitsCompletedOfLog.repository.CrudRepository;
@@ -21,12 +20,12 @@ public class MagazineService implements CrudRepository{
     private JournalException journalException;
 
     @Override
-    public void save(JournalEntity journal) {
+    public void edit(JournalEntity journal) {
         magazineRepository.save(journal);
     }
 
     @Override
-    public void addNewEntry(JournalEntity journalEntity) {
+    public void addEntry(JournalEntity journalEntity) {
         journalEntity.setDate(journalEntity.getDate());
         JournalEntity entity = new JournalEntity(journalEntity.getNumberOutfit(),
                 journalEntity.getDate(),
@@ -38,7 +37,7 @@ public class MagazineService implements CrudRepository{
     }
 
     @Override
-    public List<JournalEntity> getFindAll() {
+    public List<JournalEntity> getAll() {
         return magazineRepository.findAll();
     }
 
@@ -59,7 +58,7 @@ public class MagazineService implements CrudRepository{
     }
 
     @Override
-    public void deleteJournalById(Long index) {
+    public void deleteById(Long index) {
         magazineRepository.deleteById(index);
     }
 

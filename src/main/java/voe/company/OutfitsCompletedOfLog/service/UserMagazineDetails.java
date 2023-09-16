@@ -19,6 +19,8 @@ public class UserMagazineDetails implements UserDetails {
         this.users = users;
     }
 
+    public UserMagazineDetails(){}
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Collections.singleton(new SimpleGrantedAuthority(users.getRole()));

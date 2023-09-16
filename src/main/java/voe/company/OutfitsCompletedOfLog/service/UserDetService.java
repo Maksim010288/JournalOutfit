@@ -11,6 +11,7 @@ import voe.company.OutfitsCompletedOfLog.repository.UserRepository;
 @Service
 public class UserDetService implements UserDetailsService {
 
+   private UsersEntity users;
     @Autowired
     private UserRepository userRepository;
 
@@ -21,7 +22,7 @@ public class UserDetService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UsersEntity users = findByUsername(username);
+        this.users = findByUsername(username);
         if (users == null) {
             throw new UsernameNotFoundException("User not found");
         }
@@ -35,5 +36,9 @@ public class UserDetService implements UserDetailsService {
             }
         }
         return null;
+    }
+
+    public UsersEntity getUsers() {
+        return users;
     }
 }

@@ -1,6 +1,5 @@
 package voe.company.OutfitsCompletedOfLog.service;
 
-import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -11,12 +10,12 @@ import java.util.Collection;
 
 
 @Service
-public class UsersRoleService {
+public class UsersService {
 
     @Autowired
     private UserRepository userRepository;
 
-    public UsersEntity createNewUser(UsersEntity usersEntity) {
+    public UsersEntity createUser(UsersEntity usersEntity) {
         UsersEntity entity = new UsersEntity(
                 usersEntity.getEmail(),
                 passwordEncoder(usersEntity.getPassword()),

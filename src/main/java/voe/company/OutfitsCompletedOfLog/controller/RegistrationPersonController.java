@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import voe.company.OutfitsCompletedOfLog.entity.UsersEntity;
-import voe.company.OutfitsCompletedOfLog.service.UsersRoleService;
+import voe.company.OutfitsCompletedOfLog.service.UsersService;
 
 @Controller
 @RequestMapping("/")
 public class RegistrationPersonController {
 
     @Autowired
-    private UsersRoleService usersRoleService;
+    private UsersService usersRoleService;
 
     @GetMapping("login")
     public String login(){
@@ -34,7 +34,7 @@ public class RegistrationPersonController {
                             Model model){
         UsersEntity entity = new UsersEntity(email, password, role);
         model.addAttribute("outInfo", usersRoleService.checkUser(entity));
-        usersRoleService.createNewUser(entity);
+        usersRoleService.createUser(entity);
         return "registration";
     }
 

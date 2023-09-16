@@ -1,4 +1,4 @@
-package voe.company.OutfitsCompletedOfLog;
+package voe.company.OutfitsCompletedOfLog.exeption;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

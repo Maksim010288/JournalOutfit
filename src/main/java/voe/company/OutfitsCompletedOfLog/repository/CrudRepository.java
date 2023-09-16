@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.Optional;
 
 public interface CrudRepository {
-    void save(JournalEntity journal);
-    void addNewEntry(JournalEntity journal);
-    void deleteJournalById(Long index);
+    void edit(JournalEntity journal);
+    void addEntry(JournalEntity journal);
+    void deleteById(Long index);
     void deleteAll();
-    List<JournalEntity> getFindAll();
+    List<JournalEntity> getAll();
     List<JournalEntity> findBy(String data);
     Optional<JournalEntity> findById(Long index);
 }
