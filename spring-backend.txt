@@ -1,0 +1,2 @@
+19 сент. 2023 - 11:25:49 WARN  [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1d13h27m59s894ms469µs).
+19 сент. 2023 - 14:14:35 WARN  [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h14m17s231ms359µs100ns).

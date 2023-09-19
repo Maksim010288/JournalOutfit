@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "java.util.logging.FileHandler.level",
+      "type": "java.lang.String",
+      "description": "Description for java.util.logging.FileHandler.level."
+  }
+] }

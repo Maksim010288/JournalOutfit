@@ -19,10 +19,14 @@ import voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 @Controller
 @RequestMapping("/")
 public class MagazineController {
+
+    private Logger logger = Logger.getLogger(MagazineController.class.getName());
+
     @Autowired
     private MagazineService magazineService;
 
@@ -42,6 +46,7 @@ public class MagazineController {
         ArrayList<JournalEntity> journalEntities = new ArrayList<>();
         journalEntity.ifPresent(journalEntities::add);
         model.addAttribute("journal", journalEntities);
+        logger.info(journalEntities + "update");
         return "update";
     }
 
@@ -76,6 +81,7 @@ public class MagazineController {
     @GetMapping("journal/deleteId")
     private String deleteById(@RequestParam(defaultValue = "0") String id_del) {
         magazineService.deleteById(Long.parseLong(id_del));
+        logger.info(jdbc.provider() + " - delete by id");
         return "journal";
     }
 
@@ -83,6 +89,7 @@ public class MagazineController {
     @GetMapping("journal/deleteAll")
     private ResponseEntity<String> deleteAll() {
         magazineService.deleteAll();
+        logger.info(jdbc.provider() + " - delete all with database");
         return ResponseEntity.ok().body("delete all with database");
     }
 
@@ -109,6 +116,7 @@ public class MagazineController {
                 number_etc, description, performer);
         model.addAttribute("check", checkOut);
         magazineService.addEntry(entity);
+        logger.info(jdbc.provider() + " - add entry");
         return "journal";
     }
 
@@ -120,6 +128,7 @@ public class MagazineController {
     }
 
     @GetMapping("journal/homepage")
+    @PreAuthorize("hasAnyAuthorize('ADMIN', 'USER')")
     public String homePage() {
         return "homepage";
     }
