@@ -41,12 +41,12 @@
         #but {
             width: 100px;
             height: 50px;
-            border-radius: 100%;
+            border-radius: 10%;
             background: red;
             color:black;
             position: relative;
-            left: 80%;
-            top:-40px;
+            left: 85%;
+            top:-5px;
         }
 
         h1, .tab_search {
@@ -94,6 +94,7 @@
                 <th>№ п/п</th>
                 <th>Номер наряда</th>
                 <th>Дата виконання</th>
+                <th>Тип</th>
                 <th>Диспетчерський номер ТП</th>
                 <th>Опис роботи</th>
                 <th>Виконавець</th>
@@ -103,6 +104,7 @@
                 <td th:text="${en.getId()}"></td>
                 <td class="td" th:text="${en.getNumberOutfit()}"></td>
                 <td class="td" th:text="${en.getDate()}"></td>
+                <td class="td" th:text="${en.getTypeEac()}"></td>
                 <td class="td" th:text="${en.getDispatcherNameEts()}"></td>
                 <td class="td" th:text="${en.getJobDescription()}"></td>
                 <td class="td" th:text="${en.getPerformer()}"></td>

@@ -1,18 +1,20 @@
 package voe.company.OutfitsCompletedOfLog;
 
+import voe.company.OutfitsCompletedOfLog.entity.JournalEntity;
+
+import java.util.logging.Logger;
+
 public class CheckOut {
 
-    public Exception check(Integer numberName,
-                        String date,
-                        String type_etc,
-                        Integer number_etc,
-                        String description,
-                        String performer) {
-        if (numberName == 0 || date.equals("") ||
-                type_etc.equals("") || number_etc == 0 ||
-                description.equals("") || performer.equals("")){
-            return new RuntimeException();
+    private final Logger logger = Logger.getLogger(CheckOut.class.getName());
+
+    public Throwable check(JournalEntity entity) {
+        if (entity.getNumberOutfit().equals(0) || entity.getDate().isEmpty() ||
+                entity.getTypeEac().equals("") || entity.getDispatcherNameEts().equals(0) ||
+                entity.getJobDescription().equals("") || entity.getPerformer().equals("")){
+            logger.info("Заповніть усі поля");
+            return new Exception("Заповніть усі поля");
         }
-        return new RuntimeException();
+        return new Exception("Успішно добавлено");
     }
 }

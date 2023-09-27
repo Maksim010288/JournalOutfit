@@ -35,7 +35,7 @@ public class MagazineController {
 
 
     @GetMapping("/")
-    public String greeting(Model model){
+    public String greeting(Model model) {
         model.addAttribute("user", jdbc.provider() + "- hello");
         return "greeting";
     }
@@ -71,12 +71,10 @@ public class MagazineController {
         return "redirect:/journal/get";
     }
 
-
     @GetMapping("journal/delete")
     public String delete() {
         return "delete";
     }
-
 
     @GetMapping("journal/deleteId")
     private String deleteById(@RequestParam(defaultValue = "0") String id_del) {
@@ -108,13 +106,8 @@ public class MagazineController {
                         @RequestParam String description,
                         @RequestParam String performer,
                         Model model) {
-        Exception checkOut = new CheckOut().check(
-                numberName, date, type_etc,
-                number_etc, description, performer);
-        JournalEntity entity = new JournalEntity(
-                numberName, date, type_etc,
-                number_etc, description, performer);
-        model.addAttribute("check", checkOut);
+        JournalEntity entity = new JournalEntity(numberName, date, type_etc, number_etc, description, performer);
+        model.addAttribute("check", new CheckOut().check(entity));
         magazineService.addEntry(entity);
         logger.info(jdbc.provider() + " - add entry");
         return "journal";
