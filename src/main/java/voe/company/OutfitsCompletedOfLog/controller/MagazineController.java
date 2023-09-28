@@ -13,8 +13,6 @@ import voe.company.OutfitsCompletedOfLog.CheckOut;
 import voe.company.OutfitsCompletedOfLog.entity.JournalEntity;
 import voe.company.OutfitsCompletedOfLog.security.WebSecurityConfigurerInJdbc;
 import voe.company.OutfitsCompletedOfLog.service.MagazineService;
-import voe.company.OutfitsCompletedOfLog.service.UserDetService;
-import voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,14 +23,13 @@ import java.util.logging.Logger;
 @RequestMapping("/")
 public class MagazineController {
 
-    private Logger logger = Logger.getLogger(MagazineController.class.getName());
+    private final Logger logger = Logger.getLogger(MagazineController.class.getName());
 
     @Autowired
     private MagazineService magazineService;
 
     @Autowired
     private WebSecurityConfigurerInJdbc jdbc;
-
 
     @GetMapping("/")
     public String greeting(Model model) {
@@ -49,7 +46,6 @@ public class MagazineController {
         logger.info(journalEntities + "update");
         return "update";
     }
-
 
     @PostMapping(value = "journal/edit")
     private String updateEntry(@RequestParam(defaultValue = "0") Long id,
@@ -83,7 +79,6 @@ public class MagazineController {
         return "journal";
     }
 
-
     @GetMapping("journal/deleteAll")
     private ResponseEntity<String> deleteAll() {
         magazineService.deleteAll();
@@ -106,13 +101,13 @@ public class MagazineController {
                         @RequestParam String description,
                         @RequestParam String performer,
                         Model model) {
-        JournalEntity entity = new JournalEntity(numberName, date, type_etc, number_etc, description, performer);
+        JournalEntity entity = new JournalEntity(numberName, date,
+                type_etc, number_etc, description, performer);
         model.addAttribute("check", new CheckOut().check(entity));
         magazineService.addEntry(entity);
         logger.info(jdbc.provider() + " - add entry");
         return "journal";
     }
-
 
     @GetMapping("journal/get/by")
     public String searchBy(@RequestParam(defaultValue = "0") String etc, Model model) {
