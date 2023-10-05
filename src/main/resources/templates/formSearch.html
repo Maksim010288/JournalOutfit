@@ -13,10 +13,13 @@
 <form action="/journal/get/by" method="get">
     <h1>Пошук обєктів</h1>
     <label>
-        <input class="inpNum" type="number" name="etc">
+        <input class="inpNum" type="number" name="etc" placeholder="№-наряду або №-ТП">
     </label>
     <label>
-        <input class="inpNum" type="date" name="etc_data">
+        <input class="inpNum" type="date" name="etc_date">
+    </label>
+    <label>
+        <input class="inpNum" type="text" name="etc_name" placeholder="імя і фамілія майстра">
     </label>
     <button type="submit" id="navbar-toggle-button">Search</button>
     <table style=" width: 1320px; border: 1px solid black;">
@@ -28,6 +31,7 @@
             <th>Диспетчерський номер ТП</th>
             <th>Опис роботи</th>
             <th>Виконавець</th>
+            <th>Видалити</th>
         </tr>
         </thead>
         <tr th:each="el : ${list}">
@@ -37,6 +41,41 @@
             <td class="td" th:text="${el.getDispatcherNameEts()}"></td>
             <td class="td" th:text="${el.getJobDescription()}"></td>
             <td class="td" th:text="${el.getPerformer()}"></td>
+            <td>
+                <form action="/journal/get/by" method="get">
+                    <input type="hidden" th:value="${el.getId()}" name="id_del">
+                    <input id="delByNumber" type="submit" value="УДАЛИТЬ">
+                </form>
+            </td>
+        </tr>
+        <tr th:each="el_date : ${list_date}">
+            <td class="td" th:text="${el_date.getId()}"></td>
+            <td class="td" th:text="${el_date.getNumberOutfit()}"></td>
+            <td class="td" th:text="${el_date.getDate()}"></td>
+            <td class="td" th:text="${el_date.getDispatcherNameEts()}"></td>
+            <td class="td" th:text="${el_date.getJobDescription()}"></td>
+            <td class="td" th:text="${el_date.getPerformer()}"></td>
+            <td>
+                <form action="/journal/get/by" method="get">
+                    <input type="hidden" th:value="${el_date.getId()}" name="id_del">
+                    <input id="delByDate" type="submit" value="УДАЛИТЬ">
+                </form>
+            </td>
+
+        </tr>
+        <tr th:each="el_name : ${list_name}">
+            <td>*</td>
+            <td class="td" th:text="${el_name.getNumberOutfit()}"></td>
+            <td class="td" th:text="${el_name.getDate()}"></td>
+            <td class="td" th:text="${el_name.getDispatcherNameEts()}"></td>
+            <td class="td" th:text="${el_name.getJobDescription()}"></td>
+            <td class="td" th:text="${el_name.getPerformer()}"></td>
+            <td>
+                <form action="/journal/get/by" method="get">
+                    <input type="hidden" th:value="${el_name.getId()}" name="id_del">
+                    <input id="delByName" type="submit" value="УДАЛИТЬ">
+                </form>
+            </td>
         </tr>
     </table>
 </form>

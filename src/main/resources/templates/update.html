@@ -10,11 +10,6 @@
         <input type="submit" id="onHomepage" value="На головну">
     </label>
 </form>
-<h1>Редагувати запис</h1>
-<form action="/journal/edit" method="get">
-    <input style="width: 30px;" type="text" name="id">
-    <input type="submit" value="Пошук по ID для редагування">
-</form>
 <form method="post">
     <div th:each="el : ${journal}">
         <input class="inp" type="number" name="numberName" th:value="${el.getNumberOutfit()}"><br/>
