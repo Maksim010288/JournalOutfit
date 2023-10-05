@@ -5,10 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import voe.company.OutfitsCompletedOfLog.CheckOut;
 import voe.company.OutfitsCompletedOfLog.entity.JournalEntity;
 import voe.company.OutfitsCompletedOfLog.security.WebSecurityConfigurerInJdbc;
@@ -94,15 +91,15 @@ public class MagazineController {
     }
 
     @PostMapping("journal/get")
-    private String save(@RequestParam Integer numberName,
+    private String save(@RequestParam Integer numNar,
                         @RequestParam String date,
-                        @RequestParam String type_etc,
-                        @RequestParam Integer number_etc,
+                        @RequestParam String type,
+                        @RequestParam Integer duspNumbTP,
                         @RequestParam String description,
                         @RequestParam String performer,
                         Model model) {
-        JournalEntity entity = new JournalEntity(numberName, date,
-                type_etc, number_etc, description, performer);
+        JournalEntity entity = new JournalEntity(numNar, date,
+                type, duspNumbTP, description, performer);
         model.addAttribute("check", new CheckOut().check(entity));
         magazineService.addEntry(entity);
         logger.info(jdbc.provider() + " - add entry");
@@ -110,10 +107,17 @@ public class MagazineController {
     }
 
     @GetMapping("journal/get/by")
-    public String searchBy(@RequestParam(defaultValue = "0") String etc, Model model) {
+    public String searchBy(@RequestParam(defaultValue = "0") String etc,
+                           @RequestParam(defaultValue = "0") String etc_date,
+                           @RequestParam(defaultValue = "0") String etc_name,
+                           @RequestParam(defaultValue = "0") String id_del,
+                           Model model) {
         model.addAttribute("list", magazineService.findBy(etc));
-        return "formSearch";
-    }
+        model.addAttribute("list_name", magazineService.findByName(etc_name));
+        model.addAttribute("list_date", magazineService.findByDate(etc_date));
+        magazineService.deleteById(Long.parseLong(id_del));
+        return"formSearch";
+}
 
     @GetMapping("journal/homepage")
     @PreAuthorize("hasAnyAuthorize('ADMIN', 'USER')")
