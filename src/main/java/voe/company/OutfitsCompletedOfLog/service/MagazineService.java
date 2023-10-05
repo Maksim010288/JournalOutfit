@@ -8,12 +8,15 @@ import voe.company.OutfitsCompletedOfLog.entity.JournalEntity;
 import voe.company.OutfitsCompletedOfLog.repository.CrudRepository;
 import voe.company.OutfitsCompletedOfLog.repository.MagazineRepository;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class MagazineService implements CrudRepository{
+public class MagazineService implements CrudRepository {
     @Autowired
     private MagazineRepository magazineRepository;
     @Autowired
@@ -33,7 +36,7 @@ public class MagazineService implements CrudRepository{
                 journalEntity.getDispatcherNameEts(),
                 journalEntity.getJobDescription(),
                 journalEntity.getPerformer());
-       magazineRepository.save(entity);
+        magazineRepository.save(entity);
     }
 
     @Override
@@ -53,7 +56,8 @@ public class MagazineService implements CrudRepository{
         return magazineRepository.findAll().stream()
                 .filter(journal -> journal.getNumberOutfit().equals(Integer.parseInt(data)) ||
                         journal.getDispatcherNameEts().equals(Integer.parseInt(data)) ||
-                        journal.getDate().equals(data))
+                        journal.getDate().equals(data) ||
+                        journal.getPerformer().equals(data))
                 .collect(Collectors.toList());
     }
 
@@ -65,5 +69,13 @@ public class MagazineService implements CrudRepository{
     @Override
     public void deleteAll() {
         magazineRepository.deleteAll();
+    }
+
+    public List<JournalEntity> findByDate(String date){
+        return magazineRepository.findByDate(date);
+    }
+
+    public List<JournalEntity> findByName(String userName){
+        return magazineRepository.findByName(userName);
     }
 }
