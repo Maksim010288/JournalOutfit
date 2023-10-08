@@ -7,5 +7,6 @@
 
     <include file="outfitJournal.xml" relativeToChangelogFile="true"/>
     <include file="userDetails.xml" relativeToChangelogFile="true"/>
+    <include file="newUser.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>
