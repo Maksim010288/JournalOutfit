@@ -1,237 +1,569 @@
-08 окт. 2023 - 17:08:35 INFO  [main] v.c.O.OutfitsCompletedOfLogApplication - Starting OutfitsCompletedOfLogApplication using Java 17.0.8.1 with PID 11144 (D:\IdeaProjects\VOE\OutfitsCompletedOfLog\target\classes started by Professional in D:\IdeaProjects\VOE\OutfitsCompletedOfLog)
-08 окт. 2023 - 17:08:36 INFO  [main] v.c.O.OutfitsCompletedOfLogApplication - No active profile set, falling back to 1 default profile: "default"
-08 окт. 2023 - 17:08:39 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-08 окт. 2023 - 17:08:39 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 362 ms. Found 2 JPA repository interfaces.
-08 окт. 2023 - 17:08:42 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8789 (http)
-08 окт. 2023 - 17:08:42 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
-08 окт. 2023 - 17:08:42 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.10]
-08 окт. 2023 - 17:08:43 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-08 окт. 2023 - 17:08:43 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 7042 ms
-08 окт. 2023 - 17:08:44 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-08 окт. 2023 - 17:08:47 ERROR [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Exception during pool initialization.
-org.postgresql.util.PSQLException: Ошибка при попытке подсоединения.
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:354)
-	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
-	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:263)
-	at org.postgresql.Driver.makeConnection(Driver.java:443)
-	at org.postgresql.Driver.connect(Driver.java:297)
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
-	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
-	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:281)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:931)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:608)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:436)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
-	at voe.company.OutfitsCompletedOfLog.OutfitsCompletedOfLogApplication.main(OutfitsCompletedOfLogApplication.java:12)
-Caused by: java.net.UnknownHostException: postgres
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:572)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
-	at java.base/java.net.Socket.connect(Socket.java:633)
-	at org.postgresql.core.PGStream.createSocket(PGStream.java:243)
-	at org.postgresql.core.PGStream.<init>(PGStream.java:98)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:132)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:258)
-	... 32 common frames omitted
-08 окт. 2023 - 17:08:47 WARN  [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: org.postgresql.util.PSQLException: Ошибка при попытке подсоединения.
-08 окт. 2023 - 17:08:47 INFO  [main] o.a.catalina.core.StandardService - Stopping service [Tomcat]
-08 окт. 2023 - 17:08:48 INFO  [main] o.s.b.a.l.ConditionEvaluationReportLogger - 
+11 окт. 2023 - 19:39:03 INFO  [main] v.c.O.OutfitsCompletedOfLogApplication - Starting OutfitsCompletedOfLogApplication using Java 17.0.8.1 with PID 8828 (D:\IdeaProjects\VOE\OutfitsCompletedOfLog\target\classes started by Professional in D:\IdeaProjects\VOE\OutfitsCompletedOfLog)
+11 окт. 2023 - 19:39:03 INFO  [main] v.c.O.OutfitsCompletedOfLogApplication - No active profile set, falling back to 1 default profile: "default"
+11 окт. 2023 - 19:39:09 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+11 окт. 2023 - 19:39:10 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 378 ms. Found 2 JPA repository interfaces.
+11 окт. 2023 - 19:39:15 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8789 (http)
+11 окт. 2023 - 19:39:15 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+11 окт. 2023 - 19:39:15 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.10]
+11 окт. 2023 - 19:39:16 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+11 окт. 2023 - 19:39:16 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 11551 ms
+11 окт. 2023 - 19:39:16 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+11 окт. 2023 - 19:39:18 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@673e76b3
+11 окт. 2023 - 19:39:18 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+11 окт. 2023 - 19:39:19 INFO  [main] liquibase.database - Set default schema name to public
+11 окт. 2023 - 19:39:27 INFO  [main] liquibase.changelog - Reading from public.databasechangelog
+11 окт. 2023 - 19:39:27 INFO  [main] liquibase.changelog - Reading from public.databasechangelog
+11 окт. 2023 - 19:39:27 INFO  [main] liquibase.util - UPDATE SUMMARY
+11 окт. 2023 - 19:39:27 INFO  [main] liquibase.util - Run:                          0
+11 окт. 2023 - 19:39:27 INFO  [main] liquibase.util - Previously run:               5
+11 окт. 2023 - 19:39:27 INFO  [main] liquibase.util - Filtered out:                 0
+11 окт. 2023 - 19:39:27 INFO  [main] liquibase.util - -------------------------------
+11 окт. 2023 - 19:39:27 INFO  [main] liquibase.util - Total change sets:            5
 
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-08 окт. 2023 - 17:08:48 ERROR [main] o.s.boot.SpringApplication - Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: org.postgresql.util.PSQLException: Ошибка при попытке подсоединения.
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1770)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:931)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:608)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:436)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
-	at voe.company.OutfitsCompletedOfLog.OutfitsCompletedOfLogApplication.main(OutfitsCompletedOfLogApplication.java:12)
-Caused by: liquibase.exception.DatabaseException: org.postgresql.util.PSQLException: Ошибка при попытке подсоединения.
-	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:286)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766)
-	... 18 common frames omitted
-Caused by: org.postgresql.util.PSQLException: Ошибка при попытке подсоединения.
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:354)
-	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
-	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:263)
-	at org.postgresql.Driver.makeConnection(Driver.java:443)
-	at org.postgresql.Driver.connect(Driver.java:297)
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
-	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
-	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:281)
-	... 20 common frames omitted
-Caused by: java.net.UnknownHostException: postgres
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:572)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
-	at java.base/java.net.Socket.connect(Socket.java:633)
-	at org.postgresql.core.PGStream.createSocket(PGStream.java:243)
-	at org.postgresql.core.PGStream.<init>(PGStream.java:98)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:132)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:258)
-	... 32 common frames omitted
-08 окт. 2023 - 17:09:34 INFO  [main] v.c.O.OutfitsCompletedOfLogApplication - Starting OutfitsCompletedOfLogApplication using Java 17.0.8.1 with PID 11320 (D:\IdeaProjects\VOE\OutfitsCompletedOfLog\target\classes started by Professional in D:\IdeaProjects\VOE\OutfitsCompletedOfLog)
-08 окт. 2023 - 17:09:35 INFO  [main] v.c.O.OutfitsCompletedOfLogApplication - No active profile set, falling back to 1 default profile: "default"
-08 окт. 2023 - 17:09:37 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-08 окт. 2023 - 17:09:38 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 251 ms. Found 2 JPA repository interfaces.
-08 окт. 2023 - 17:09:40 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8789 (http)
-08 окт. 2023 - 17:09:40 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
-08 окт. 2023 - 17:09:40 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.10]
-08 окт. 2023 - 17:09:41 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-08 окт. 2023 - 17:09:41 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5914 ms
-08 окт. 2023 - 17:09:41 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-08 окт. 2023 - 17:09:42 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@75fe1619
-08 окт. 2023 - 17:09:42 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-08 окт. 2023 - 17:09:44 INFO  [main] liquibase.database - Set default schema name to public
-08 окт. 2023 - 17:09:47 INFO  [main] liquibase.changelog - Reading from public.databasechangelog
-08 окт. 2023 - 17:09:48 INFO  [main] liquibase.lockservice - Successfully acquired change log lock
-08 окт. 2023 - 17:09:48 INFO  [main] liquibase.command - Using deploymentId: 6774188432
-08 окт. 2023 - 17:09:48 INFO  [main] liquibase.changelog - Reading from public.databasechangelog
-08 окт. 2023 - 17:09:48 ERROR [main] liquibase.changelog - ChangeSet db.changelog/v~1.0/newUser.xml::02::Maksim Bazyk encountered an exception.
-08 окт. 2023 - 17:09:48 INFO  [main] liquibase.command - Update command encountered an exception.
-08 окт. 2023 - 17:09:48 INFO  [main] liquibase.lockservice - Successfully released change log lock
-08 окт. 2023 - 17:09:48 INFO  [main] liquibase.command - Command execution complete
-08 окт. 2023 - 17:09:48 WARN  [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db.changelog/v~1.0/newUser.xml::02::Maksim Bazyk:
-     Reason: liquibase.exception.DatabaseException: ОШИБКА: отношение "public.userDetails" не существует
-  Позиция: 13 [Failed SQL: (0) INSERT INTO public."userDetails" (email, password, role) VALUES ('Demon@gmail.com', '$2a$10$rvg1b/Im24uCfCvcQPC6ieglDOLXQVpigHGVFX8cjgv.zSHskKaIu', 'ADMIN')]
-08 окт. 2023 - 17:09:48 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-08 окт. 2023 - 17:09:48 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-08 окт. 2023 - 17:09:48 INFO  [main] o.a.catalina.core.StandardService - Stopping service [Tomcat]
-08 окт. 2023 - 17:09:48 INFO  [main] o.s.b.a.l.ConditionEvaluationReportLogger - 
+11 окт. 2023 - 19:39:27 INFO  [main] liquibase.util - Update summary generated
+11 окт. 2023 - 19:39:27 INFO  [main] liquibase.lockservice - Successfully released change log lock
+11 окт. 2023 - 19:39:27 INFO  [main] liquibase.command - Command execution complete
+11 окт. 2023 - 19:39:28 INFO  [main] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+11 окт. 2023 - 19:39:29 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.5.Final
+11 окт. 2023 - 19:39:29 INFO  [main] org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+11 окт. 2023 - 19:39:30 INFO  [main] o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+11 окт. 2023 - 19:39:31 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+11 окт. 2023 - 19:39:33 INFO  [main] o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+11 окт. 2023 - 19:39:37 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+11 окт. 2023 - 19:39:37 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+11 окт. 2023 - 19:39:39 INFO  [main] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+11 окт. 2023 - 19:39:39 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+11 окт. 2023 - 19:39:41 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','DIRECTOR')] for Mvc [pattern='/person/add']
+11 окт. 2023 - 19:39:41 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','DIRECTOR')] for Mvc [pattern='/journal/get']
+11 окт. 2023 - 19:39:41 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','DIRECTOR')] for Mvc [pattern='/journal/deleteId']
+11 окт. 2023 - 19:39:41 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','DIRECTOR')] for Mvc [pattern='/journal/deleteAll']
+11 окт. 2023 - 19:39:41 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','DIRECTOR')] for Mvc [pattern='/journal/edit']
+11 окт. 2023 - 19:39:41 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','USER','DIRECTOR')] for Mvc [pattern='/']
+11 окт. 2023 - 19:39:41 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','USER','DIRECTOR')] for Mvc [pattern='/journal/homepage']
+11 окт. 2023 - 19:39:41 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','USER','DIRECTOR')] for Mvc [pattern='/journal/get/by']
+11 окт. 2023 - 19:39:41 INFO  [main] o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@575a6540, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7e544223, org.springframework.security.web.context.SecurityContextHolderFilter@28cfbcc, org.springframework.security.web.header.HeaderWriterFilter@7cb32ca5, org.springframework.security.web.authentication.logout.LogoutFilter@20dc2df1, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@35738a92, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@3c67b7a9, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@c6c5b66, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@b31cd6b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@19d85bbe, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2f803d8, org.springframework.security.web.access.ExceptionTranslationFilter@30130a31, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@30c96ea9]
+11 окт. 2023 - 19:39:41 INFO  [main] o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@b6a20ce, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@79296ce0, org.springframework.security.web.context.SecurityContextHolderFilter@398a27e, org.springframework.security.web.header.HeaderWriterFilter@4d099a37, org.springframework.security.web.authentication.logout.LogoutFilter@4d53dfb7, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@79beb8a0, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@298990ab, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@19c28c97, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7beb2bc2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@28d07fa4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@15b54cb7, org.springframework.security.web.access.ExceptionTranslationFilter@7c75f3a8, org.springframework.security.web.access.intercept.AuthorizationFilter@362ad436]
+11 окт. 2023 - 19:39:43 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8789 (http) with context path ''
+11 окт. 2023 - 19:39:44 INFO  [main] v.c.O.OutfitsCompletedOfLogApplication - Started OutfitsCompletedOfLogApplication in 44.151 seconds (process running for 47.896)
+11 окт. 2023 - 19:40:18 INFO  [http-nio-8789-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+11 окт. 2023 - 19:40:18 INFO  [http-nio-8789-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+11 окт. 2023 - 19:40:18 INFO  [http-nio-8789-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 9 ms
+11 окт. 2023 - 19:40:18 DEBUG [http-nio-8789-exec-1] o.s.security.web.FilterChainProxy - Securing GET /journal/get
+11 окт. 2023 - 19:40:18 DEBUG [http-nio-8789-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+11 окт. 2023 - 19:40:18 DEBUG [http-nio-8789-exec-1] o.s.s.w.a.i.FilterSecurityInterceptor - Failed to authorize filter invocation [GET /journal/get] with attributes [hasAnyAuthority('ADMIN','DIRECTOR')]
+11 окт. 2023 - 19:40:18 WARN  [http-nio-8789-exec-1] o.a.c.util.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [295] milliseconds.
+11 окт. 2023 - 19:40:18 DEBUG [http-nio-8789-exec-1] o.s.s.w.s.HttpSessionRequestCache - Saved request http://localhost:8789/journal/get?continue to session
+11 окт. 2023 - 19:40:18 DEBUG [http-nio-8789-exec-1] o.s.s.web.DefaultRedirectStrategy - Redirecting to http://localhost:8789/login
+11 окт. 2023 - 19:40:18 DEBUG [http-nio-8789-exec-2] o.s.security.web.FilterChainProxy - Securing GET /login
+11 окт. 2023 - 19:40:18 DEBUG [http-nio-8789-exec-3] o.s.security.web.FilterChainProxy - Securing GET /favicon.ico
+11 окт. 2023 - 19:40:19 DEBUG [http-nio-8789-exec-3] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized public object filter invocation [GET /favicon.ico]
+11 окт. 2023 - 19:40:19 DEBUG [http-nio-8789-exec-3] o.s.security.web.FilterChainProxy - Secured GET /favicon.ico
+11 окт. 2023 - 19:40:19 DEBUG [http-nio-8789-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+11 окт. 2023 - 19:40:19 DEBUG [http-nio-8789-exec-3] o.s.security.web.FilterChainProxy - Securing GET /error
+11 окт. 2023 - 19:40:19 DEBUG [http-nio-8789-exec-3] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized public object filter invocation [GET /error]
+11 окт. 2023 - 19:40:19 DEBUG [http-nio-8789-exec-3] o.s.security.web.FilterChainProxy - Secured GET /error
+11 окт. 2023 - 19:40:19 DEBUG [http-nio-8789-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+11 окт. 2023 - 19:40:33 DEBUG [http-nio-8789-exec-4] o.s.security.web.FilterChainProxy - Securing POST /login
+11 окт. 2023 - 19:40:35 DEBUG [http-nio-8789-exec-4] o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+11 окт. 2023 - 19:40:35 DEBUG [http-nio-8789-exec-4] o.s.s.w.a.s.ChangeSessionIdAuthenticationStrategy - Changed session id from D37D4606CDFD168DE4E739C97F409837
+11 окт. 2023 - 19:40:35 DEBUG [http-nio-8789-exec-4] o.s.s.w.c.HttpSessionSecurityContextRepository - Stored SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@5869ab86, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=D37D4606CDFD168DE4E739C97F409837], Granted Authorities=[ADMIN]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@50efd2cc]
+11 окт. 2023 - 19:40:35 DEBUG [http-nio-8789-exec-4] o.s.s.w.a.UsernamePasswordAuthenticationFilter - Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@5869ab86, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=D37D4606CDFD168DE4E739C97F409837], Granted Authorities=[ADMIN]]
+11 окт. 2023 - 19:40:35 DEBUG [http-nio-8789-exec-4] o.s.s.web.DefaultRedirectStrategy - Redirecting to http://localhost:8789/journal/get?continue
+11 окт. 2023 - 19:40:35 DEBUG [http-nio-8789-exec-5] o.s.security.web.FilterChainProxy - Securing GET /journal/get?continue
+11 окт. 2023 - 19:40:35 DEBUG [http-nio-8789-exec-5] o.s.s.w.s.HttpSessionRequestCache - Loaded matching saved request http://localhost:8789/journal/get?continue
+11 окт. 2023 - 19:40:35 DEBUG [http-nio-8789-exec-5] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@5869ab86, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=D37D4606CDFD168DE4E739C97F409837], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 19:40:35 DEBUG [http-nio-8789-exec-5] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /journal/get?continue] with attributes [hasAnyAuthority('ADMIN','DIRECTOR')]
+11 окт. 2023 - 19:40:35 DEBUG [http-nio-8789-exec-5] o.s.security.web.FilterChainProxy - Secured GET /journal/get?continue
+11 окт. 2023 - 19:40:37 DEBUG [http-nio-8789-exec-6] o.s.security.web.FilterChainProxy - Securing GET /style/journal.css
+11 окт. 2023 - 19:40:37 DEBUG [http-nio-8789-exec-6] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized public object filter invocation [GET /style/journal.css]
+11 окт. 2023 - 19:40:37 DEBUG [http-nio-8789-exec-6] o.s.security.web.FilterChainProxy - Secured GET /style/journal.css
+11 окт. 2023 - 19:40:37 DEBUG [http-nio-8789-exec-6] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@5869ab86, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=D37D4606CDFD168DE4E739C97F409837], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 19:40:37 DEBUG [http-nio-8789-exec-6] o.s.security.web.FilterChainProxy - Securing GET /error
+11 окт. 2023 - 19:40:37 DEBUG [http-nio-8789-exec-6] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized public object filter invocation [GET /error]
+11 окт. 2023 - 19:40:37 DEBUG [http-nio-8789-exec-6] o.s.security.web.FilterChainProxy - Secured GET /error
+11 окт. 2023 - 19:40:37 DEBUG [http-nio-8789-exec-6] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@5869ab86, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=D37D4606CDFD168DE4E739C97F409837], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 19:40:52 DEBUG [http-nio-8789-exec-7] o.s.security.web.FilterChainProxy - Securing GET /journal/homepage?
+11 окт. 2023 - 19:40:52 DEBUG [http-nio-8789-exec-7] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@5869ab86, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=D37D4606CDFD168DE4E739C97F409837], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 19:40:52 DEBUG [http-nio-8789-exec-7] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /journal/homepage?] with attributes [hasAnyAuthority('ADMIN','USER','DIRECTOR')]
+11 окт. 2023 - 19:40:52 DEBUG [http-nio-8789-exec-7] o.s.security.web.FilterChainProxy - Secured GET /journal/homepage?
+11 окт. 2023 - 19:40:55 DEBUG [http-nio-8789-exec-8] o.s.security.web.FilterChainProxy - Securing GET /journal/get/by?
+11 окт. 2023 - 19:40:55 DEBUG [http-nio-8789-exec-8] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@5869ab86, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=D37D4606CDFD168DE4E739C97F409837], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 19:40:55 DEBUG [http-nio-8789-exec-8] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /journal/get/by?] with attributes [hasAnyAuthority('ADMIN','USER','DIRECTOR')]
+11 окт. 2023 - 19:40:55 DEBUG [http-nio-8789-exec-8] o.s.security.web.FilterChainProxy - Secured GET /journal/get/by?
+11 окт. 2023 - 19:40:58 DEBUG [http-nio-8789-exec-9] o.s.security.web.FilterChainProxy - Securing GET /journal/logout?
+11 окт. 2023 - 19:40:58 DEBUG [http-nio-8789-exec-9] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized public object filter invocation [GET /journal/logout?]
+11 окт. 2023 - 19:40:58 DEBUG [http-nio-8789-exec-9] o.s.security.web.FilterChainProxy - Secured GET /journal/logout?
+11 окт. 2023 - 19:40:58 DEBUG [http-nio-8789-exec-9] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@5869ab86, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=D37D4606CDFD168DE4E739C97F409837], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 19:40:58 DEBUG [http-nio-8789-exec-10] o.s.security.web.FilterChainProxy - Securing GET /logout
+11 окт. 2023 - 19:40:58 DEBUG [http-nio-8789-exec-10] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@5869ab86, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=D37D4606CDFD168DE4E739C97F409837], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 19:40:58 DEBUG [http-nio-8789-exec-10] o.s.s.w.a.logout.LogoutFilter - Logging out [UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@5869ab86, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=D37D4606CDFD168DE4E739C97F409837], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 19:40:58 DEBUG [http-nio-8789-exec-10] o.s.s.w.a.l.SecurityContextLogoutHandler - Invalidated session 8E6D8438A2329EA5300DC9713C3D9BCC
+11 окт. 2023 - 19:40:58 DEBUG [http-nio-8789-exec-10] o.s.s.web.DefaultRedirectStrategy - Redirecting to /login?logout
+11 окт. 2023 - 19:40:58 DEBUG [http-nio-8789-exec-1] o.s.security.web.FilterChainProxy - Securing GET /login?logout
+11 окт. 2023 - 19:46:44 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+11 окт. 2023 - 19:46:44 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+11 окт. 2023 - 19:46:44 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+11 окт. 2023 - 19:47:04 INFO  [main] v.c.O.OutfitsCompletedOfLogApplication - Starting OutfitsCompletedOfLogApplication using Java 17.0.8.1 with PID 13272 (D:\IdeaProjects\VOE\OutfitsCompletedOfLog\target\classes started by Professional in D:\IdeaProjects\VOE\OutfitsCompletedOfLog)
+11 окт. 2023 - 19:47:04 INFO  [main] v.c.O.OutfitsCompletedOfLogApplication - No active profile set, falling back to 1 default profile: "default"
+11 окт. 2023 - 19:47:08 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+11 окт. 2023 - 19:47:08 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 356 ms. Found 2 JPA repository interfaces.
+11 окт. 2023 - 19:47:12 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8789 (http)
+11 окт. 2023 - 19:47:12 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+11 окт. 2023 - 19:47:12 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.10]
+11 окт. 2023 - 19:47:12 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+11 окт. 2023 - 19:47:12 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 7554 ms
+11 окт. 2023 - 19:47:13 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+11 окт. 2023 - 19:47:13 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4130a648
+11 окт. 2023 - 19:47:13 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+11 окт. 2023 - 19:47:14 INFO  [main] liquibase.database - Set default schema name to public
+11 окт. 2023 - 19:47:17 INFO  [main] liquibase.changelog - Reading from public.databasechangelog
+11 окт. 2023 - 19:47:18 INFO  [main] liquibase.changelog - Reading from public.databasechangelog
+11 окт. 2023 - 19:47:18 INFO  [main] liquibase.util - UPDATE SUMMARY
+11 окт. 2023 - 19:47:18 INFO  [main] liquibase.util - Run:                          0
+11 окт. 2023 - 19:47:18 INFO  [main] liquibase.util - Previously run:               5
+11 окт. 2023 - 19:47:18 INFO  [main] liquibase.util - Filtered out:                 0
+11 окт. 2023 - 19:47:18 INFO  [main] liquibase.util - -------------------------------
+11 окт. 2023 - 19:47:18 INFO  [main] liquibase.util - Total change sets:            5
 
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-08 окт. 2023 - 17:09:48 ERROR [main] o.s.boot.SpringApplication - Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db.changelog/v~1.0/newUser.xml::02::Maksim Bazyk:
-     Reason: liquibase.exception.DatabaseException: ОШИБКА: отношение "public.userDetails" не существует
-  Позиция: 13 [Failed SQL: (0) INSERT INTO public."userDetails" (email, password, role) VALUES ('Demon@gmail.com', '$2a$10$rvg1b/Im24uCfCvcQPC6ieglDOLXQVpigHGVFX8cjgv.zSHskKaIu', 'ADMIN')]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1770)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:931)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:608)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:436)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
-	at voe.company.OutfitsCompletedOfLog.OutfitsCompletedOfLogApplication.main(OutfitsCompletedOfLogApplication.java:12)
-Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db.changelog/v~1.0/newUser.xml::02::Maksim Bazyk:
-     Reason: liquibase.exception.DatabaseException: ОШИБКА: отношение "public.userDetails" не существует
-  Позиция: 13 [Failed SQL: (0) INSERT INTO public."userDetails" (email, password, role) VALUES ('Demon@gmail.com', '$2a$10$rvg1b/Im24uCfCvcQPC6ieglDOLXQVpigHGVFX8cjgv.zSHskKaIu', 'ADMIN')]
-	at liquibase.command.CommandScope.execute(CommandScope.java:236)
-	at liquibase.Liquibase.lambda$update$0(Liquibase.java:223)
-	at liquibase.Scope.lambda$child$0(Scope.java:197)
-	at liquibase.Scope.child(Scope.java:206)
-	at liquibase.Scope.child(Scope.java:196)
-	at liquibase.Scope.child(Scope.java:175)
-	at liquibase.Liquibase.runInScope(Liquibase.java:1361)
-	at liquibase.Liquibase.update(Liquibase.java:215)
-	at liquibase.Liquibase.update(Liquibase.java:197)
-	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:329)
-	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:284)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766)
-	... 18 common frames omitted
-Caused by: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db.changelog/v~1.0/newUser.xml::02::Maksim Bazyk:
-     Reason: liquibase.exception.DatabaseException: ОШИБКА: отношение "public.userDetails" не существует
-  Позиция: 13 [Failed SQL: (0) INSERT INTO public."userDetails" (email, password, role) VALUES ('Demon@gmail.com', '$2a$10$rvg1b/Im24uCfCvcQPC6ieglDOLXQVpigHGVFX8cjgv.zSHskKaIu', 'ADMIN')]
-	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:122)
-	at liquibase.command.core.AbstractUpdateCommandStep.lambda$run$0(AbstractUpdateCommandStep.java:87)
-	at liquibase.Scope.lambda$child$0(Scope.java:197)
-	at liquibase.Scope.child(Scope.java:206)
-	at liquibase.Scope.child(Scope.java:196)
-	at liquibase.Scope.child(Scope.java:175)
-	at liquibase.command.core.AbstractUpdateCommandStep.run(AbstractUpdateCommandStep.java:86)
-	at liquibase.command.core.UpdateCommandStep.run(UpdateCommandStep.java:102)
-	at liquibase.command.CommandScope.execute(CommandScope.java:213)
-	... 30 common frames omitted
-Caused by: liquibase.exception.MigrationFailedException: Migration failed for changeset db.changelog/v~1.0/newUser.xml::02::Maksim Bazyk:
-     Reason: liquibase.exception.DatabaseException: ОШИБКА: отношение "public.userDetails" не существует
-  Позиция: 13 [Failed SQL: (0) INSERT INTO public."userDetails" (email, password, role) VALUES ('Demon@gmail.com', '$2a$10$rvg1b/Im24uCfCvcQPC6ieglDOLXQVpigHGVFX8cjgv.zSHskKaIu', 'ADMIN')]
-	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:768)
-	at liquibase.changelog.visitor.UpdateVisitor.executeAcceptedChange(UpdateVisitor.java:120)
-	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:70)
-	at liquibase.changelog.ChangeLogIterator$2.lambda$run$0(ChangeLogIterator.java:110)
-	at liquibase.Scope.lambda$child$0(Scope.java:197)
-	at liquibase.Scope.child(Scope.java:206)
-	at liquibase.Scope.child(Scope.java:196)
-	at liquibase.Scope.child(Scope.java:175)
-	at liquibase.Scope.child(Scope.java:263)
-	at liquibase.changelog.ChangeLogIterator$2.run(ChangeLogIterator.java:100)
-	at liquibase.Scope.lambda$child$0(Scope.java:197)
-	at liquibase.Scope.child(Scope.java:206)
-	at liquibase.Scope.child(Scope.java:196)
-	at liquibase.Scope.child(Scope.java:175)
-	at liquibase.Scope.child(Scope.java:263)
-	at liquibase.Scope.child(Scope.java:267)
-	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:74)
-	... 38 common frames omitted
-Caused by: liquibase.exception.DatabaseException: ОШИБКА: отношение "public.userDetails" не существует
-  Позиция: 13 [Failed SQL: (0) INSERT INTO public."userDetails" (email, password, role) VALUES ('Demon@gmail.com', '$2a$10$rvg1b/Im24uCfCvcQPC6ieglDOLXQVpigHGVFX8cjgv.zSHskKaIu', 'ADMIN')]
-	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:467)
-	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:77)
-	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:180)
-	at liquibase.database.AbstractJdbcDatabase.execute(AbstractJdbcDatabase.java:1291)
-	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1273)
-	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:728)
-	... 54 common frames omitted
-Caused by: org.postgresql.util.PSQLException: ОШИБКА: отношение "public.userDetails" не существует
-  Позиция: 13
-	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
-	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
-	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
-	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:498)
-	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:415)
-	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:335)
-	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:321)
-	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:297)
-	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:292)
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
-	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:461)
-	... 59 common frames omitted
+11 окт. 2023 - 19:47:18 INFO  [main] liquibase.util - Update summary generated
+11 окт. 2023 - 19:47:18 INFO  [main] liquibase.lockservice - Successfully released change log lock
+11 окт. 2023 - 19:47:18 INFO  [main] liquibase.command - Command execution complete
+11 окт. 2023 - 19:47:18 INFO  [main] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+11 окт. 2023 - 19:47:19 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.5.Final
+11 окт. 2023 - 19:47:19 INFO  [main] org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+11 окт. 2023 - 19:47:19 INFO  [main] o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+11 окт. 2023 - 19:47:20 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+11 окт. 2023 - 19:47:21 INFO  [main] o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+11 окт. 2023 - 19:47:24 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+11 окт. 2023 - 19:47:24 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+11 окт. 2023 - 19:47:25 INFO  [main] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+11 окт. 2023 - 19:47:26 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+11 окт. 2023 - 19:47:28 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','DIRECTOR')] for Mvc [pattern='/person/add']
+11 окт. 2023 - 19:47:28 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','DIRECTOR')] for Mvc [pattern='/journal/get']
+11 окт. 2023 - 19:47:28 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','DIRECTOR')] for Mvc [pattern='/journal/deleteId']
+11 окт. 2023 - 19:47:28 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','DIRECTOR')] for Mvc [pattern='/journal/deleteAll']
+11 окт. 2023 - 19:47:28 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','DIRECTOR')] for Mvc [pattern='/journal/edit']
+11 окт. 2023 - 19:47:28 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','USER','DIRECTOR')] for Mvc [pattern='/']
+11 окт. 2023 - 19:47:28 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','USER','DIRECTOR')] for Mvc [pattern='/journal/homepage']
+11 окт. 2023 - 19:47:28 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','USER','DIRECTOR')] for Mvc [pattern='/journal/get/by']
+11 окт. 2023 - 19:47:28 INFO  [main] o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@38911759, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2b8106f, org.springframework.security.web.context.SecurityContextHolderFilter@6ac9742e, org.springframework.security.web.header.HeaderWriterFilter@9d455a6, org.springframework.security.web.authentication.logout.LogoutFilter@781befe7, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6bca3b27, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@73ae084e, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@4b391e45, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@21298c3a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4f63219e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@647bd553, org.springframework.security.web.access.ExceptionTranslationFilter@892f1fa, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6e1d939e]
+11 окт. 2023 - 19:47:28 INFO  [main] o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@42000298, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4df9df06, org.springframework.security.web.context.SecurityContextHolderFilter@4ae836cf, org.springframework.security.web.header.HeaderWriterFilter@5523f107, org.springframework.security.web.authentication.logout.LogoutFilter@75c8855e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@786d8b3b, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@6773c073, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@6e87556f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7d2c9b65, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2d12a71f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7a273fd7, org.springframework.security.web.access.ExceptionTranslationFilter@62065d12, org.springframework.security.web.access.intercept.AuthorizationFilter@6fa98e98]
+11 окт. 2023 - 19:47:30 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8789 (http) with context path ''
+11 окт. 2023 - 19:47:30 INFO  [main] v.c.O.OutfitsCompletedOfLogApplication - Started OutfitsCompletedOfLogApplication in 27.856 seconds (process running for 31.415)
+11 окт. 2023 - 19:47:41 INFO  [http-nio-8789-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+11 окт. 2023 - 19:47:41 INFO  [http-nio-8789-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+11 окт. 2023 - 19:47:41 INFO  [http-nio-8789-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+11 окт. 2023 - 19:47:41 DEBUG [http-nio-8789-exec-1] o.s.security.web.FilterChainProxy - Securing GET /login?logout
+11 окт. 2023 - 19:47:53 DEBUG [http-nio-8789-exec-2] o.s.security.web.FilterChainProxy - Securing POST /login
+11 окт. 2023 - 19:47:55 DEBUG [http-nio-8789-exec-2] o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+11 окт. 2023 - 19:47:55 WARN  [http-nio-8789-exec-2] o.a.c.util.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [236] milliseconds.
+11 окт. 2023 - 19:47:55 DEBUG [http-nio-8789-exec-2] o.s.s.w.c.HttpSessionSecurityContextRepository - Stored SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@1d4bf624, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ADMIN]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@4d80aecf]
+11 окт. 2023 - 19:47:55 DEBUG [http-nio-8789-exec-2] o.s.s.w.a.UsernamePasswordAuthenticationFilter - Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@1d4bf624, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ADMIN]]
+11 окт. 2023 - 19:47:55 DEBUG [http-nio-8789-exec-2] o.s.s.web.DefaultRedirectStrategy - Redirecting to /
+11 окт. 2023 - 19:47:55 DEBUG [http-nio-8789-exec-3] o.s.security.web.FilterChainProxy - Securing GET /
+11 окт. 2023 - 19:47:55 DEBUG [http-nio-8789-exec-3] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@1d4bf624, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 19:47:55 DEBUG [http-nio-8789-exec-3] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /] with attributes [hasAnyAuthority('ADMIN','USER','DIRECTOR')]
+11 окт. 2023 - 19:47:55 DEBUG [http-nio-8789-exec-3] o.s.security.web.FilterChainProxy - Secured GET /
+11 окт. 2023 - 19:48:00 DEBUG [http-nio-8789-exec-4] o.s.security.web.FilterChainProxy - Securing GET /journal/homepage?
+11 окт. 2023 - 19:48:00 DEBUG [http-nio-8789-exec-4] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@1d4bf624, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 19:48:00 DEBUG [http-nio-8789-exec-4] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /journal/homepage?] with attributes [hasAnyAuthority('ADMIN','USER','DIRECTOR')]
+11 окт. 2023 - 19:48:00 DEBUG [http-nio-8789-exec-4] o.s.security.web.FilterChainProxy - Secured GET /journal/homepage?
+11 окт. 2023 - 19:48:05 DEBUG [http-nio-8789-exec-5] o.s.security.web.FilterChainProxy - Securing GET /journal/get/by?
+11 окт. 2023 - 19:48:05 DEBUG [http-nio-8789-exec-5] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@1d4bf624, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 19:48:05 DEBUG [http-nio-8789-exec-5] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /journal/get/by?] with attributes [hasAnyAuthority('ADMIN','USER','DIRECTOR')]
+11 окт. 2023 - 19:48:05 DEBUG [http-nio-8789-exec-5] o.s.security.web.FilterChainProxy - Secured GET /journal/get/by?
+11 окт. 2023 - 19:48:20 DEBUG [http-nio-8789-exec-6] o.s.security.web.FilterChainProxy - Securing GET /journal/logout?
+11 окт. 2023 - 19:48:20 DEBUG [http-nio-8789-exec-6] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized public object filter invocation [GET /journal/logout?]
+11 окт. 2023 - 19:48:20 DEBUG [http-nio-8789-exec-6] o.s.security.web.FilterChainProxy - Secured GET /journal/logout?
+11 окт. 2023 - 19:48:20 DEBUG [http-nio-8789-exec-6] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@1d4bf624, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 19:48:20 DEBUG [http-nio-8789-exec-7] o.s.security.web.FilterChainProxy - Securing GET /logout
+11 окт. 2023 - 19:48:20 DEBUG [http-nio-8789-exec-7] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@1d4bf624, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 19:48:20 DEBUG [http-nio-8789-exec-7] o.s.s.w.a.logout.LogoutFilter - Logging out [UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@1d4bf624, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 19:48:20 DEBUG [http-nio-8789-exec-7] o.s.s.w.a.l.SecurityContextLogoutHandler - Invalidated session 5EE626F5D28E8E53525A010665C1BD34
+11 окт. 2023 - 19:48:20 DEBUG [http-nio-8789-exec-7] o.s.s.web.DefaultRedirectStrategy - Redirecting to /login?logout
+11 окт. 2023 - 19:48:20 DEBUG [http-nio-8789-exec-8] o.s.security.web.FilterChainProxy - Securing GET /login?logout
+11 окт. 2023 - 19:48:32 DEBUG [http-nio-8789-exec-9] o.s.security.web.FilterChainProxy - Securing POST /login
+11 окт. 2023 - 19:48:32 DEBUG [http-nio-8789-exec-9] o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+11 окт. 2023 - 19:48:32 DEBUG [http-nio-8789-exec-9] o.s.s.w.c.HttpSessionSecurityContextRepository - Stored SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@5762075f, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ADMIN]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@3a2eabee]
+11 окт. 2023 - 19:48:32 DEBUG [http-nio-8789-exec-9] o.s.s.w.a.UsernamePasswordAuthenticationFilter - Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@5762075f, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ADMIN]]
+11 окт. 2023 - 19:48:32 DEBUG [http-nio-8789-exec-9] o.s.s.web.DefaultRedirectStrategy - Redirecting to /
+11 окт. 2023 - 19:48:32 DEBUG [http-nio-8789-exec-10] o.s.security.web.FilterChainProxy - Securing GET /
+11 окт. 2023 - 19:48:32 DEBUG [http-nio-8789-exec-10] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@5762075f, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 19:48:32 DEBUG [http-nio-8789-exec-10] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /] with attributes [hasAnyAuthority('ADMIN','USER','DIRECTOR')]
+11 окт. 2023 - 19:48:32 DEBUG [http-nio-8789-exec-10] o.s.security.web.FilterChainProxy - Secured GET /
+11 окт. 2023 - 19:48:50 DEBUG [http-nio-8789-exec-2] o.s.security.web.FilterChainProxy - Securing GET /journal/homepage?
+11 окт. 2023 - 19:48:50 DEBUG [http-nio-8789-exec-2] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@5762075f, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 19:48:50 DEBUG [http-nio-8789-exec-2] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /journal/homepage?] with attributes [hasAnyAuthority('ADMIN','USER','DIRECTOR')]
+11 окт. 2023 - 19:48:50 DEBUG [http-nio-8789-exec-2] o.s.security.web.FilterChainProxy - Secured GET /journal/homepage?
+11 окт. 2023 - 19:48:52 DEBUG [http-nio-8789-exec-3] o.s.security.web.FilterChainProxy - Securing GET /journal/get?
+11 окт. 2023 - 19:48:52 DEBUG [http-nio-8789-exec-3] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@5762075f, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 19:48:52 DEBUG [http-nio-8789-exec-3] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /journal/get?] with attributes [hasAnyAuthority('ADMIN','DIRECTOR')]
+11 окт. 2023 - 19:48:52 DEBUG [http-nio-8789-exec-3] o.s.security.web.FilterChainProxy - Secured GET /journal/get?
+11 окт. 2023 - 19:48:52 DEBUG [http-nio-8789-exec-4] o.s.security.web.FilterChainProxy - Securing GET /style/journal.css
+11 окт. 2023 - 19:48:52 DEBUG [http-nio-8789-exec-4] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized public object filter invocation [GET /style/journal.css]
+11 окт. 2023 - 19:48:52 DEBUG [http-nio-8789-exec-4] o.s.security.web.FilterChainProxy - Secured GET /style/journal.css
+11 окт. 2023 - 19:48:52 DEBUG [http-nio-8789-exec-4] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@5762075f, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 19:48:52 DEBUG [http-nio-8789-exec-4] o.s.security.web.FilterChainProxy - Securing GET /error
+11 окт. 2023 - 19:48:52 DEBUG [http-nio-8789-exec-4] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized public object filter invocation [GET /error]
+11 окт. 2023 - 19:48:52 DEBUG [http-nio-8789-exec-4] o.s.security.web.FilterChainProxy - Secured GET /error
+11 окт. 2023 - 19:48:52 DEBUG [http-nio-8789-exec-4] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@5762075f, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 19:48:54 DEBUG [http-nio-8789-exec-5] o.s.security.web.FilterChainProxy - Securing GET /journal/homepage?
+11 окт. 2023 - 19:48:54 DEBUG [http-nio-8789-exec-5] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@5762075f, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 19:48:54 DEBUG [http-nio-8789-exec-5] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /journal/homepage?] with attributes [hasAnyAuthority('ADMIN','USER','DIRECTOR')]
+11 окт. 2023 - 19:48:54 DEBUG [http-nio-8789-exec-5] o.s.security.web.FilterChainProxy - Secured GET /journal/homepage?
+11 окт. 2023 - 19:48:57 DEBUG [http-nio-8789-exec-6] o.s.security.web.FilterChainProxy - Securing GET /journal/get/by?
+11 окт. 2023 - 19:48:57 DEBUG [http-nio-8789-exec-6] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@5762075f, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 19:48:57 DEBUG [http-nio-8789-exec-6] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /journal/get/by?] with attributes [hasAnyAuthority('ADMIN','USER','DIRECTOR')]
+11 окт. 2023 - 19:48:57 DEBUG [http-nio-8789-exec-6] o.s.security.web.FilterChainProxy - Secured GET /journal/get/by?
+11 окт. 2023 - 19:57:29 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+11 окт. 2023 - 19:57:29 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+11 окт. 2023 - 19:57:29 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+11 окт. 2023 - 19:57:55 INFO  [main] v.c.O.OutfitsCompletedOfLogApplication - Starting OutfitsCompletedOfLogApplication using Java 17.0.8.1 with PID 4620 (D:\IdeaProjects\VOE\OutfitsCompletedOfLog\target\classes started by Professional in D:\IdeaProjects\VOE\OutfitsCompletedOfLog)
+11 окт. 2023 - 19:57:56 INFO  [main] v.c.O.OutfitsCompletedOfLogApplication - No active profile set, falling back to 1 default profile: "default"
+11 окт. 2023 - 19:58:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+11 окт. 2023 - 19:58:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 332 ms. Found 2 JPA repository interfaces.
+11 окт. 2023 - 19:58:03 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8789 (http)
+11 окт. 2023 - 19:58:03 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+11 окт. 2023 - 19:58:03 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.10]
+11 окт. 2023 - 19:58:04 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+11 окт. 2023 - 19:58:04 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 7859 ms
+11 окт. 2023 - 19:58:05 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+11 окт. 2023 - 19:58:05 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@78a8978a
+11 окт. 2023 - 19:58:05 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+11 окт. 2023 - 19:58:06 INFO  [main] liquibase.database - Set default schema name to public
+11 окт. 2023 - 19:58:09 INFO  [main] liquibase.changelog - Reading from public.databasechangelog
+11 окт. 2023 - 19:58:09 INFO  [main] liquibase.changelog - Reading from public.databasechangelog
+11 окт. 2023 - 19:58:09 INFO  [main] liquibase.util - UPDATE SUMMARY
+11 окт. 2023 - 19:58:09 INFO  [main] liquibase.util - Run:                          0
+11 окт. 2023 - 19:58:09 INFO  [main] liquibase.util - Previously run:               5
+11 окт. 2023 - 19:58:09 INFO  [main] liquibase.util - Filtered out:                 0
+11 окт. 2023 - 19:58:09 INFO  [main] liquibase.util - -------------------------------
+11 окт. 2023 - 19:58:09 INFO  [main] liquibase.util - Total change sets:            5
+
+11 окт. 2023 - 19:58:09 INFO  [main] liquibase.util - Update summary generated
+11 окт. 2023 - 19:58:09 INFO  [main] liquibase.lockservice - Successfully released change log lock
+11 окт. 2023 - 19:58:09 INFO  [main] liquibase.command - Command execution complete
+11 окт. 2023 - 19:58:10 INFO  [main] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+11 окт. 2023 - 19:58:10 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.5.Final
+11 окт. 2023 - 19:58:10 INFO  [main] org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+11 окт. 2023 - 19:58:11 INFO  [main] o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+11 окт. 2023 - 19:58:12 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+11 окт. 2023 - 19:58:13 INFO  [main] o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+11 окт. 2023 - 19:58:16 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+11 окт. 2023 - 19:58:16 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+11 окт. 2023 - 19:58:17 INFO  [main] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+11 окт. 2023 - 19:58:18 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+11 окт. 2023 - 19:58:19 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','DIRECTOR')] for Mvc [pattern='/person/add']
+11 окт. 2023 - 19:58:19 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','DIRECTOR')] for Mvc [pattern='/journal/get']
+11 окт. 2023 - 19:58:19 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','DIRECTOR')] for Mvc [pattern='/journal/deleteId']
+11 окт. 2023 - 19:58:19 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','DIRECTOR')] for Mvc [pattern='/journal/deleteAll']
+11 окт. 2023 - 19:58:19 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','DIRECTOR')] for Mvc [pattern='/journal/edit']
+11 окт. 2023 - 19:58:19 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','USER','DIRECTOR')] for Mvc [pattern='/']
+11 окт. 2023 - 19:58:19 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','USER','DIRECTOR')] for Mvc [pattern='/journal/homepage']
+11 окт. 2023 - 19:58:19 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','USER','DIRECTOR')] for Mvc [pattern='/journal/get/by']
+11 окт. 2023 - 19:58:19 INFO  [main] o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@450b99f2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7dc16d33, org.springframework.security.web.context.SecurityContextHolderFilter@353ac1ef, org.springframework.security.web.header.HeaderWriterFilter@4951dc8c, org.springframework.security.web.authentication.logout.LogoutFilter@3dc976da, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@13056efe, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@2ddb260e, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@1915879c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@22912968, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@616b2b2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@58397dee, org.springframework.security.web.access.ExceptionTranslationFilter@1626612d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@69ca71b3]
+11 окт. 2023 - 19:58:20 INFO  [main] o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3b67c637, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@31b11287, org.springframework.security.web.context.SecurityContextHolderFilter@3208e15, org.springframework.security.web.header.HeaderWriterFilter@2aa176de, org.springframework.security.web.authentication.logout.LogoutFilter@6deb2b19, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6fca831e, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@6d4f1a44, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@414d5660, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4ba99bb7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4cf99283, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7aa4ef24, org.springframework.security.web.access.ExceptionTranslationFilter@5ceb6796, org.springframework.security.web.access.intercept.AuthorizationFilter@35b8b69f]
+11 окт. 2023 - 19:58:21 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8789 (http) with context path ''
+11 окт. 2023 - 19:58:22 INFO  [main] v.c.O.OutfitsCompletedOfLogApplication - Started OutfitsCompletedOfLogApplication in 28.902 seconds (process running for 32.252)
+11 окт. 2023 - 19:58:32 INFO  [http-nio-8789-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+11 окт. 2023 - 19:58:32 INFO  [http-nio-8789-exec-2] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+11 окт. 2023 - 19:58:32 INFO  [http-nio-8789-exec-2] o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+11 окт. 2023 - 19:58:32 DEBUG [http-nio-8789-exec-2] o.s.security.web.FilterChainProxy - Securing GET /journal/get/by?
+11 окт. 2023 - 19:58:32 DEBUG [http-nio-8789-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+11 окт. 2023 - 19:58:32 DEBUG [http-nio-8789-exec-2] o.s.s.w.a.i.FilterSecurityInterceptor - Failed to authorize filter invocation [GET /journal/get/by?] with attributes [hasAnyAuthority('ADMIN','USER','DIRECTOR')]
+11 окт. 2023 - 19:58:32 WARN  [http-nio-8789-exec-2] o.a.c.util.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [271] milliseconds.
+11 окт. 2023 - 19:58:32 DEBUG [http-nio-8789-exec-2] o.s.s.w.s.HttpSessionRequestCache - Saved request http://localhost:8789/journal/get/by?continue to session
+11 окт. 2023 - 19:58:32 DEBUG [http-nio-8789-exec-2] o.s.s.web.DefaultRedirectStrategy - Redirecting to http://localhost:8789/login
+11 окт. 2023 - 19:58:32 DEBUG [http-nio-8789-exec-1] o.s.security.web.FilterChainProxy - Securing GET /login
+11 окт. 2023 - 19:58:41 DEBUG [http-nio-8789-exec-3] o.s.security.web.FilterChainProxy - Securing POST /login
+11 окт. 2023 - 19:58:42 DEBUG [http-nio-8789-exec-3] o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+11 окт. 2023 - 19:58:42 DEBUG [http-nio-8789-exec-3] o.s.s.w.a.s.ChangeSessionIdAuthenticationStrategy - Changed session id from 8DDDA06F3926E83286836F6D5780A0B7
+11 окт. 2023 - 19:58:42 DEBUG [http-nio-8789-exec-3] o.s.s.w.c.HttpSessionSecurityContextRepository - Stored SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@1d436929, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=8DDDA06F3926E83286836F6D5780A0B7], Granted Authorities=[ADMIN]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@38545dd2]
+11 окт. 2023 - 19:58:42 DEBUG [http-nio-8789-exec-3] o.s.s.w.a.UsernamePasswordAuthenticationFilter - Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@1d436929, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=8DDDA06F3926E83286836F6D5780A0B7], Granted Authorities=[ADMIN]]
+11 окт. 2023 - 19:58:42 DEBUG [http-nio-8789-exec-3] o.s.s.web.DefaultRedirectStrategy - Redirecting to http://localhost:8789/journal/get/by?continue
+11 окт. 2023 - 19:58:42 DEBUG [http-nio-8789-exec-4] o.s.security.web.FilterChainProxy - Securing GET /journal/get/by?continue
+11 окт. 2023 - 19:58:42 DEBUG [http-nio-8789-exec-4] o.s.s.w.s.HttpSessionRequestCache - Loaded matching saved request http://localhost:8789/journal/get/by?continue
+11 окт. 2023 - 19:58:42 DEBUG [http-nio-8789-exec-4] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@1d436929, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=8DDDA06F3926E83286836F6D5780A0B7], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 19:58:42 DEBUG [http-nio-8789-exec-4] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /journal/get/by?continue] with attributes [hasAnyAuthority('ADMIN','USER','DIRECTOR')]
+11 окт. 2023 - 19:58:42 DEBUG [http-nio-8789-exec-4] o.s.security.web.FilterChainProxy - Secured GET /journal/get/by?continue
+11 окт. 2023 - 20:02:33 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+11 окт. 2023 - 20:02:33 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+11 окт. 2023 - 20:02:33 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+11 окт. 2023 - 20:02:54 INFO  [main] v.c.O.OutfitsCompletedOfLogApplication - Starting OutfitsCompletedOfLogApplication using Java 17.0.8.1 with PID 12316 (D:\IdeaProjects\VOE\OutfitsCompletedOfLog\target\classes started by Professional in D:\IdeaProjects\VOE\OutfitsCompletedOfLog)
+11 окт. 2023 - 20:02:54 INFO  [main] v.c.O.OutfitsCompletedOfLogApplication - No active profile set, falling back to 1 default profile: "default"
+11 окт. 2023 - 20:02:57 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+11 окт. 2023 - 20:02:58 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 317 ms. Found 2 JPA repository interfaces.
+11 окт. 2023 - 20:03:01 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8789 (http)
+11 окт. 2023 - 20:03:02 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+11 окт. 2023 - 20:03:02 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.10]
+11 окт. 2023 - 20:03:02 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+11 окт. 2023 - 20:03:02 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 8193 ms
+11 окт. 2023 - 20:03:03 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+11 окт. 2023 - 20:03:04 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@78a8978a
+11 окт. 2023 - 20:03:04 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+11 окт. 2023 - 20:03:05 INFO  [main] liquibase.database - Set default schema name to public
+11 окт. 2023 - 20:03:08 INFO  [main] liquibase.changelog - Reading from public.databasechangelog
+11 окт. 2023 - 20:03:08 INFO  [main] liquibase.changelog - Reading from public.databasechangelog
+11 окт. 2023 - 20:03:08 INFO  [main] liquibase.util - UPDATE SUMMARY
+11 окт. 2023 - 20:03:08 INFO  [main] liquibase.util - Run:                          0
+11 окт. 2023 - 20:03:08 INFO  [main] liquibase.util - Previously run:               5
+11 окт. 2023 - 20:03:08 INFO  [main] liquibase.util - Filtered out:                 0
+11 окт. 2023 - 20:03:08 INFO  [main] liquibase.util - -------------------------------
+11 окт. 2023 - 20:03:08 INFO  [main] liquibase.util - Total change sets:            5
+
+11 окт. 2023 - 20:03:08 INFO  [main] liquibase.util - Update summary generated
+11 окт. 2023 - 20:03:08 INFO  [main] liquibase.lockservice - Successfully released change log lock
+11 окт. 2023 - 20:03:08 INFO  [main] liquibase.command - Command execution complete
+11 окт. 2023 - 20:03:09 INFO  [main] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+11 окт. 2023 - 20:03:09 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.5.Final
+11 окт. 2023 - 20:03:09 INFO  [main] org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+11 окт. 2023 - 20:03:10 INFO  [main] o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+11 окт. 2023 - 20:03:11 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+11 окт. 2023 - 20:03:12 INFO  [main] o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+11 окт. 2023 - 20:03:15 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+11 окт. 2023 - 20:03:15 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+11 окт. 2023 - 20:03:16 INFO  [main] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+11 окт. 2023 - 20:03:17 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+11 окт. 2023 - 20:03:18 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','DIRECTOR')] for Mvc [pattern='/person/add']
+11 окт. 2023 - 20:03:18 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','DIRECTOR')] for Mvc [pattern='/journal/get']
+11 окт. 2023 - 20:03:18 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','DIRECTOR')] for Mvc [pattern='/journal/deleteId']
+11 окт. 2023 - 20:03:18 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','DIRECTOR')] for Mvc [pattern='/journal/deleteAll']
+11 окт. 2023 - 20:03:18 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','DIRECTOR')] for Mvc [pattern='/journal/edit']
+11 окт. 2023 - 20:03:18 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','USER','DIRECTOR')] for Mvc [pattern='/']
+11 окт. 2023 - 20:03:18 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','USER','DIRECTOR')] for Mvc [pattern='/journal/homepage']
+11 окт. 2023 - 20:03:18 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','USER','DIRECTOR')] for Mvc [pattern='/journal/get/by']
+11 окт. 2023 - 20:03:18 INFO  [main] o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@450b99f2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7dc16d33, org.springframework.security.web.context.SecurityContextHolderFilter@353ac1ef, org.springframework.security.web.header.HeaderWriterFilter@4951dc8c, org.springframework.security.web.authentication.logout.LogoutFilter@3dc976da, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@13056efe, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@2ddb260e, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@1915879c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@22912968, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@616b2b2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@58397dee, org.springframework.security.web.access.ExceptionTranslationFilter@1626612d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@69ca71b3]
+11 окт. 2023 - 20:03:18 INFO  [main] o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3b67c637, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@31b11287, org.springframework.security.web.context.SecurityContextHolderFilter@3208e15, org.springframework.security.web.header.HeaderWriterFilter@2aa176de, org.springframework.security.web.authentication.logout.LogoutFilter@6deb2b19, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6fca831e, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@6d4f1a44, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@414d5660, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4ba99bb7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4cf99283, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7aa4ef24, org.springframework.security.web.access.ExceptionTranslationFilter@5ceb6796, org.springframework.security.web.access.intercept.AuthorizationFilter@35b8b69f]
+11 окт. 2023 - 20:03:20 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8789 (http) with context path ''
+11 окт. 2023 - 20:03:20 INFO  [main] v.c.O.OutfitsCompletedOfLogApplication - Started OutfitsCompletedOfLogApplication in 28.589 seconds (process running for 32.203)
+11 окт. 2023 - 20:03:26 INFO  [http-nio-8789-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+11 окт. 2023 - 20:03:26 INFO  [http-nio-8789-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+11 окт. 2023 - 20:03:26 INFO  [http-nio-8789-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 7 ms
+11 окт. 2023 - 20:03:26 DEBUG [http-nio-8789-exec-1] o.s.security.web.FilterChainProxy - Securing GET /journal/get/by?continue
+11 окт. 2023 - 20:03:26 DEBUG [http-nio-8789-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+11 окт. 2023 - 20:03:26 DEBUG [http-nio-8789-exec-1] o.s.s.w.a.i.FilterSecurityInterceptor - Failed to authorize filter invocation [GET /journal/get/by?continue] with attributes [hasAnyAuthority('ADMIN','USER','DIRECTOR')]
+11 окт. 2023 - 20:03:26 WARN  [http-nio-8789-exec-1] o.a.c.util.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [254] milliseconds.
+11 окт. 2023 - 20:03:26 DEBUG [http-nio-8789-exec-1] o.s.s.w.s.HttpSessionRequestCache - Saved request http://localhost:8789/journal/get/by?continue&continue to session
+11 окт. 2023 - 20:03:26 DEBUG [http-nio-8789-exec-1] o.s.s.web.DefaultRedirectStrategy - Redirecting to http://localhost:8789/login
+11 окт. 2023 - 20:03:26 DEBUG [http-nio-8789-exec-2] o.s.security.web.FilterChainProxy - Securing GET /login
+11 окт. 2023 - 20:03:36 DEBUG [http-nio-8789-exec-3] o.s.security.web.FilterChainProxy - Securing POST /login
+11 окт. 2023 - 20:03:37 DEBUG [http-nio-8789-exec-3] o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+11 окт. 2023 - 20:03:37 DEBUG [http-nio-8789-exec-3] o.s.s.w.a.s.ChangeSessionIdAuthenticationStrategy - Changed session id from AED99EE61089172E4A23F96BF571001D
+11 окт. 2023 - 20:03:37 DEBUG [http-nio-8789-exec-3] o.s.s.w.c.HttpSessionSecurityContextRepository - Stored SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@6f5f9432, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=AED99EE61089172E4A23F96BF571001D], Granted Authorities=[ADMIN]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@1391e2ea]
+11 окт. 2023 - 20:03:37 DEBUG [http-nio-8789-exec-3] o.s.s.w.a.UsernamePasswordAuthenticationFilter - Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@6f5f9432, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=AED99EE61089172E4A23F96BF571001D], Granted Authorities=[ADMIN]]
+11 окт. 2023 - 20:03:37 DEBUG [http-nio-8789-exec-3] o.s.s.web.DefaultRedirectStrategy - Redirecting to http://localhost:8789/journal/get/by?continue&continue
+11 окт. 2023 - 20:03:37 DEBUG [http-nio-8789-exec-5] o.s.security.web.FilterChainProxy - Securing GET /journal/get/by?continue&continue
+11 окт. 2023 - 20:03:37 DEBUG [http-nio-8789-exec-5] o.s.s.w.s.HttpSessionRequestCache - Loaded matching saved request http://localhost:8789/journal/get/by?continue&continue
+11 окт. 2023 - 20:03:37 DEBUG [http-nio-8789-exec-5] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@6f5f9432, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=AED99EE61089172E4A23F96BF571001D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:03:37 DEBUG [http-nio-8789-exec-5] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /journal/get/by?continue&continue] with attributes [hasAnyAuthority('ADMIN','USER','DIRECTOR')]
+11 окт. 2023 - 20:03:37 DEBUG [http-nio-8789-exec-5] o.s.security.web.FilterChainProxy - Secured GET /journal/get/by?continue&continue
+11 окт. 2023 - 20:03:48 DEBUG [http-nio-8789-exec-6] o.s.security.web.FilterChainProxy - Securing GET /journal/homepage?
+11 окт. 2023 - 20:03:48 DEBUG [http-nio-8789-exec-6] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@6f5f9432, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=AED99EE61089172E4A23F96BF571001D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:03:48 DEBUG [http-nio-8789-exec-6] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /journal/homepage?] with attributes [hasAnyAuthority('ADMIN','USER','DIRECTOR')]
+11 окт. 2023 - 20:03:48 DEBUG [http-nio-8789-exec-6] o.s.security.web.FilterChainProxy - Secured GET /journal/homepage?
+11 окт. 2023 - 20:03:51 DEBUG [http-nio-8789-exec-4] o.s.security.web.FilterChainProxy - Securing GET /journal/get?
+11 окт. 2023 - 20:03:51 DEBUG [http-nio-8789-exec-4] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@6f5f9432, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=AED99EE61089172E4A23F96BF571001D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:03:51 DEBUG [http-nio-8789-exec-4] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /journal/get?] with attributes [hasAnyAuthority('ADMIN','DIRECTOR')]
+11 окт. 2023 - 20:03:51 DEBUG [http-nio-8789-exec-4] o.s.security.web.FilterChainProxy - Secured GET /journal/get?
+11 окт. 2023 - 20:03:51 DEBUG [http-nio-8789-exec-7] o.s.security.web.FilterChainProxy - Securing GET /style/journal.css
+11 окт. 2023 - 20:03:51 DEBUG [http-nio-8789-exec-7] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized public object filter invocation [GET /style/journal.css]
+11 окт. 2023 - 20:03:51 DEBUG [http-nio-8789-exec-7] o.s.security.web.FilterChainProxy - Secured GET /style/journal.css
+11 окт. 2023 - 20:03:51 DEBUG [http-nio-8789-exec-7] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@6f5f9432, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=AED99EE61089172E4A23F96BF571001D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:03:51 DEBUG [http-nio-8789-exec-7] o.s.security.web.FilterChainProxy - Securing GET /error
+11 окт. 2023 - 20:03:51 DEBUG [http-nio-8789-exec-7] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized public object filter invocation [GET /error]
+11 окт. 2023 - 20:03:51 DEBUG [http-nio-8789-exec-7] o.s.security.web.FilterChainProxy - Secured GET /error
+11 окт. 2023 - 20:03:52 DEBUG [http-nio-8789-exec-7] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@6f5f9432, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=AED99EE61089172E4A23F96BF571001D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:04:09 DEBUG [http-nio-8789-exec-8] o.s.security.web.FilterChainProxy - Securing GET /journal/homepage?
+11 окт. 2023 - 20:04:09 DEBUG [http-nio-8789-exec-8] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@6f5f9432, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=AED99EE61089172E4A23F96BF571001D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:04:09 DEBUG [http-nio-8789-exec-8] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /journal/homepage?] with attributes [hasAnyAuthority('ADMIN','USER','DIRECTOR')]
+11 окт. 2023 - 20:04:09 DEBUG [http-nio-8789-exec-8] o.s.security.web.FilterChainProxy - Secured GET /journal/homepage?
+11 окт. 2023 - 20:04:10 DEBUG [http-nio-8789-exec-9] o.s.security.web.FilterChainProxy - Securing GET /journal/get/by?
+11 окт. 2023 - 20:04:10 DEBUG [http-nio-8789-exec-9] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@6f5f9432, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=AED99EE61089172E4A23F96BF571001D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:04:10 DEBUG [http-nio-8789-exec-9] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /journal/get/by?] with attributes [hasAnyAuthority('ADMIN','USER','DIRECTOR')]
+11 окт. 2023 - 20:04:10 DEBUG [http-nio-8789-exec-9] o.s.security.web.FilterChainProxy - Secured GET /journal/get/by?
+11 окт. 2023 - 20:04:14 DEBUG [http-nio-8789-exec-10] o.s.security.web.FilterChainProxy - Securing GET /journal/homepage?
+11 окт. 2023 - 20:04:14 DEBUG [http-nio-8789-exec-10] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@6f5f9432, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=AED99EE61089172E4A23F96BF571001D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:04:14 DEBUG [http-nio-8789-exec-10] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /journal/homepage?] with attributes [hasAnyAuthority('ADMIN','USER','DIRECTOR')]
+11 окт. 2023 - 20:04:14 DEBUG [http-nio-8789-exec-10] o.s.security.web.FilterChainProxy - Secured GET /journal/homepage?
+11 окт. 2023 - 20:04:18 DEBUG [http-nio-8789-exec-1] o.s.security.web.FilterChainProxy - Securing GET /journal/get?
+11 окт. 2023 - 20:04:18 DEBUG [http-nio-8789-exec-1] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@6f5f9432, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=AED99EE61089172E4A23F96BF571001D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:04:18 DEBUG [http-nio-8789-exec-1] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /journal/get?] with attributes [hasAnyAuthority('ADMIN','DIRECTOR')]
+11 окт. 2023 - 20:04:18 DEBUG [http-nio-8789-exec-1] o.s.security.web.FilterChainProxy - Secured GET /journal/get?
+11 окт. 2023 - 20:04:18 DEBUG [http-nio-8789-exec-2] o.s.security.web.FilterChainProxy - Securing GET /style/journal.css
+11 окт. 2023 - 20:04:18 DEBUG [http-nio-8789-exec-2] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized public object filter invocation [GET /style/journal.css]
+11 окт. 2023 - 20:04:18 DEBUG [http-nio-8789-exec-2] o.s.security.web.FilterChainProxy - Secured GET /style/journal.css
+11 окт. 2023 - 20:04:18 DEBUG [http-nio-8789-exec-2] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@6f5f9432, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=AED99EE61089172E4A23F96BF571001D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:04:18 DEBUG [http-nio-8789-exec-2] o.s.security.web.FilterChainProxy - Securing GET /error
+11 окт. 2023 - 20:04:18 DEBUG [http-nio-8789-exec-2] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized public object filter invocation [GET /error]
+11 окт. 2023 - 20:04:18 DEBUG [http-nio-8789-exec-2] o.s.security.web.FilterChainProxy - Secured GET /error
+11 окт. 2023 - 20:04:18 DEBUG [http-nio-8789-exec-2] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@6f5f9432, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=AED99EE61089172E4A23F96BF571001D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:04:22 DEBUG [http-nio-8789-exec-3] o.s.security.web.FilterChainProxy - Securing GET /journal/homepage?
+11 окт. 2023 - 20:04:22 DEBUG [http-nio-8789-exec-3] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@6f5f9432, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=AED99EE61089172E4A23F96BF571001D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:04:22 DEBUG [http-nio-8789-exec-3] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /journal/homepage?] with attributes [hasAnyAuthority('ADMIN','USER','DIRECTOR')]
+11 окт. 2023 - 20:04:22 DEBUG [http-nio-8789-exec-3] o.s.security.web.FilterChainProxy - Secured GET /journal/homepage?
+11 окт. 2023 - 20:04:23 DEBUG [http-nio-8789-exec-5] o.s.security.web.FilterChainProxy - Securing GET /journal/get/by?
+11 окт. 2023 - 20:04:23 DEBUG [http-nio-8789-exec-5] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@6f5f9432, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=AED99EE61089172E4A23F96BF571001D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:04:23 DEBUG [http-nio-8789-exec-5] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /journal/get/by?] with attributes [hasAnyAuthority('ADMIN','USER','DIRECTOR')]
+11 окт. 2023 - 20:04:23 DEBUG [http-nio-8789-exec-5] o.s.security.web.FilterChainProxy - Secured GET /journal/get/by?
+11 окт. 2023 - 20:04:35 DEBUG [http-nio-8789-exec-6] o.s.security.web.FilterChainProxy - Securing GET /journal/get/by?etc=20&etc_date=&etc_name=
+11 окт. 2023 - 20:04:35 DEBUG [http-nio-8789-exec-6] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@6f5f9432, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=AED99EE61089172E4A23F96BF571001D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:04:35 DEBUG [http-nio-8789-exec-6] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /journal/get/by?etc=20&etc_date=&etc_name=] with attributes [hasAnyAuthority('ADMIN','USER','DIRECTOR')]
+11 окт. 2023 - 20:04:35 DEBUG [http-nio-8789-exec-6] o.s.security.web.FilterChainProxy - Secured GET /journal/get/by?etc=20&etc_date=&etc_name=
+11 окт. 2023 - 20:04:38 DEBUG [http-nio-8789-exec-4] o.s.security.web.FilterChainProxy - Securing GET /journal/homepage?
+11 окт. 2023 - 20:04:38 DEBUG [http-nio-8789-exec-4] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@6f5f9432, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=AED99EE61089172E4A23F96BF571001D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:04:38 DEBUG [http-nio-8789-exec-4] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /journal/homepage?] with attributes [hasAnyAuthority('ADMIN','USER','DIRECTOR')]
+11 окт. 2023 - 20:04:38 DEBUG [http-nio-8789-exec-4] o.s.security.web.FilterChainProxy - Secured GET /journal/homepage?
+11 окт. 2023 - 20:04:40 DEBUG [http-nio-8789-exec-7] o.s.security.web.FilterChainProxy - Securing GET /journal/get?
+11 окт. 2023 - 20:04:40 DEBUG [http-nio-8789-exec-7] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@6f5f9432, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=AED99EE61089172E4A23F96BF571001D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:04:40 DEBUG [http-nio-8789-exec-7] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /journal/get?] with attributes [hasAnyAuthority('ADMIN','DIRECTOR')]
+11 окт. 2023 - 20:04:40 DEBUG [http-nio-8789-exec-7] o.s.security.web.FilterChainProxy - Secured GET /journal/get?
+11 окт. 2023 - 20:04:40 DEBUG [http-nio-8789-exec-8] o.s.security.web.FilterChainProxy - Securing GET /style/journal.css
+11 окт. 2023 - 20:04:40 DEBUG [http-nio-8789-exec-8] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized public object filter invocation [GET /style/journal.css]
+11 окт. 2023 - 20:04:40 DEBUG [http-nio-8789-exec-8] o.s.security.web.FilterChainProxy - Secured GET /style/journal.css
+11 окт. 2023 - 20:04:40 DEBUG [http-nio-8789-exec-8] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@6f5f9432, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=AED99EE61089172E4A23F96BF571001D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:04:40 DEBUG [http-nio-8789-exec-8] o.s.security.web.FilterChainProxy - Securing GET /error
+11 окт. 2023 - 20:04:40 DEBUG [http-nio-8789-exec-8] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized public object filter invocation [GET /error]
+11 окт. 2023 - 20:04:40 DEBUG [http-nio-8789-exec-8] o.s.security.web.FilterChainProxy - Secured GET /error
+11 окт. 2023 - 20:04:40 DEBUG [http-nio-8789-exec-8] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@6f5f9432, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=AED99EE61089172E4A23F96BF571001D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:04:44 DEBUG [http-nio-8789-exec-9] o.s.security.web.FilterChainProxy - Securing GET /journal/homepage?
+11 окт. 2023 - 20:04:44 DEBUG [http-nio-8789-exec-9] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@6f5f9432, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=AED99EE61089172E4A23F96BF571001D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:04:44 DEBUG [http-nio-8789-exec-9] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /journal/homepage?] with attributes [hasAnyAuthority('ADMIN','USER','DIRECTOR')]
+11 окт. 2023 - 20:04:44 DEBUG [http-nio-8789-exec-9] o.s.security.web.FilterChainProxy - Secured GET /journal/homepage?
+11 окт. 2023 - 20:04:47 DEBUG [http-nio-8789-exec-10] o.s.security.web.FilterChainProxy - Securing GET /journal/get?
+11 окт. 2023 - 20:04:47 DEBUG [http-nio-8789-exec-10] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@6f5f9432, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=AED99EE61089172E4A23F96BF571001D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:04:47 DEBUG [http-nio-8789-exec-10] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /journal/get?] with attributes [hasAnyAuthority('ADMIN','DIRECTOR')]
+11 окт. 2023 - 20:04:47 DEBUG [http-nio-8789-exec-10] o.s.security.web.FilterChainProxy - Secured GET /journal/get?
+11 окт. 2023 - 20:04:47 DEBUG [http-nio-8789-exec-1] o.s.security.web.FilterChainProxy - Securing GET /style/journal.css
+11 окт. 2023 - 20:04:47 DEBUG [http-nio-8789-exec-1] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized public object filter invocation [GET /style/journal.css]
+11 окт. 2023 - 20:04:47 DEBUG [http-nio-8789-exec-1] o.s.security.web.FilterChainProxy - Secured GET /style/journal.css
+11 окт. 2023 - 20:04:47 DEBUG [http-nio-8789-exec-1] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@6f5f9432, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=AED99EE61089172E4A23F96BF571001D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:04:47 DEBUG [http-nio-8789-exec-1] o.s.security.web.FilterChainProxy - Securing GET /error
+11 окт. 2023 - 20:04:47 DEBUG [http-nio-8789-exec-1] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized public object filter invocation [GET /error]
+11 окт. 2023 - 20:04:47 DEBUG [http-nio-8789-exec-1] o.s.security.web.FilterChainProxy - Secured GET /error
+11 окт. 2023 - 20:04:47 DEBUG [http-nio-8789-exec-1] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@6f5f9432, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=AED99EE61089172E4A23F96BF571001D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:04:49 DEBUG [http-nio-8789-exec-2] o.s.security.web.FilterChainProxy - Securing GET /journal/homepage?
+11 окт. 2023 - 20:04:49 DEBUG [http-nio-8789-exec-2] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@6f5f9432, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=AED99EE61089172E4A23F96BF571001D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:04:49 DEBUG [http-nio-8789-exec-2] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /journal/homepage?] with attributes [hasAnyAuthority('ADMIN','USER','DIRECTOR')]
+11 окт. 2023 - 20:04:49 DEBUG [http-nio-8789-exec-2] o.s.security.web.FilterChainProxy - Secured GET /journal/homepage?
+11 окт. 2023 - 20:04:51 DEBUG [http-nio-8789-exec-3] o.s.security.web.FilterChainProxy - Securing GET /journal/get/by?
+11 окт. 2023 - 20:04:51 DEBUG [http-nio-8789-exec-3] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@6f5f9432, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=AED99EE61089172E4A23F96BF571001D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:04:51 DEBUG [http-nio-8789-exec-3] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /journal/get/by?] with attributes [hasAnyAuthority('ADMIN','USER','DIRECTOR')]
+11 окт. 2023 - 20:04:51 DEBUG [http-nio-8789-exec-3] o.s.security.web.FilterChainProxy - Secured GET /journal/get/by?
+11 окт. 2023 - 20:04:57 DEBUG [http-nio-8789-exec-5] o.s.security.web.FilterChainProxy - Securing GET /journal/get/by?etc=12&etc_date=&etc_name=
+11 окт. 2023 - 20:04:57 DEBUG [http-nio-8789-exec-5] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@6f5f9432, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=AED99EE61089172E4A23F96BF571001D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:04:57 DEBUG [http-nio-8789-exec-5] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /journal/get/by?etc=12&etc_date=&etc_name=] with attributes [hasAnyAuthority('ADMIN','USER','DIRECTOR')]
+11 окт. 2023 - 20:04:57 DEBUG [http-nio-8789-exec-5] o.s.security.web.FilterChainProxy - Secured GET /journal/get/by?etc=12&etc_date=&etc_name=
+11 окт. 2023 - 20:05:05 DEBUG [http-nio-8789-exec-6] o.s.security.web.FilterChainProxy - Securing GET /journal/get/by?etc=&etc_date=&etc_name=&id_del=23
+11 окт. 2023 - 20:05:05 DEBUG [http-nio-8789-exec-6] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@6f5f9432, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=AED99EE61089172E4A23F96BF571001D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:05:05 DEBUG [http-nio-8789-exec-6] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /journal/get/by?etc=&etc_date=&etc_name=&id_del=23] with attributes [hasAnyAuthority('ADMIN','USER','DIRECTOR')]
+11 окт. 2023 - 20:05:05 DEBUG [http-nio-8789-exec-6] o.s.security.web.FilterChainProxy - Secured GET /journal/get/by?etc=&etc_date=&etc_name=&id_del=23
+11 окт. 2023 - 20:05:08 DEBUG [http-nio-8789-exec-4] o.s.security.web.FilterChainProxy - Securing GET /journal/homepage?
+11 окт. 2023 - 20:05:08 DEBUG [http-nio-8789-exec-4] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@6f5f9432, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=AED99EE61089172E4A23F96BF571001D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:05:08 DEBUG [http-nio-8789-exec-4] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /journal/homepage?] with attributes [hasAnyAuthority('ADMIN','USER','DIRECTOR')]
+11 окт. 2023 - 20:05:08 DEBUG [http-nio-8789-exec-4] o.s.security.web.FilterChainProxy - Secured GET /journal/homepage?
+11 окт. 2023 - 20:05:11 DEBUG [http-nio-8789-exec-7] o.s.security.web.FilterChainProxy - Securing GET /journal/get?
+11 окт. 2023 - 20:05:11 DEBUG [http-nio-8789-exec-7] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@6f5f9432, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=AED99EE61089172E4A23F96BF571001D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:05:11 DEBUG [http-nio-8789-exec-7] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /journal/get?] with attributes [hasAnyAuthority('ADMIN','DIRECTOR')]
+11 окт. 2023 - 20:05:11 DEBUG [http-nio-8789-exec-7] o.s.security.web.FilterChainProxy - Secured GET /journal/get?
+11 окт. 2023 - 20:05:11 DEBUG [http-nio-8789-exec-8] o.s.security.web.FilterChainProxy - Securing GET /style/journal.css
+11 окт. 2023 - 20:05:11 DEBUG [http-nio-8789-exec-8] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized public object filter invocation [GET /style/journal.css]
+11 окт. 2023 - 20:05:11 DEBUG [http-nio-8789-exec-8] o.s.security.web.FilterChainProxy - Secured GET /style/journal.css
+11 окт. 2023 - 20:05:11 DEBUG [http-nio-8789-exec-8] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@6f5f9432, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=AED99EE61089172E4A23F96BF571001D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:05:11 DEBUG [http-nio-8789-exec-8] o.s.security.web.FilterChainProxy - Securing GET /error
+11 окт. 2023 - 20:05:11 DEBUG [http-nio-8789-exec-8] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized public object filter invocation [GET /error]
+11 окт. 2023 - 20:05:11 DEBUG [http-nio-8789-exec-8] o.s.security.web.FilterChainProxy - Secured GET /error
+11 окт. 2023 - 20:05:11 DEBUG [http-nio-8789-exec-8] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@6f5f9432, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=AED99EE61089172E4A23F96BF571001D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:22:25 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+11 окт. 2023 - 20:22:25 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+11 окт. 2023 - 20:22:25 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+11 окт. 2023 - 20:22:54 INFO  [main] v.c.O.OutfitsCompletedOfLogApplication - Starting OutfitsCompletedOfLogApplication using Java 17.0.8.1 with PID 6448 (D:\IdeaProjects\VOE\OutfitsCompletedOfLog\target\classes started by Professional in D:\IdeaProjects\VOE\OutfitsCompletedOfLog)
+11 окт. 2023 - 20:22:54 INFO  [main] v.c.O.OutfitsCompletedOfLogApplication - No active profile set, falling back to 1 default profile: "default"
+11 окт. 2023 - 20:22:58 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+11 окт. 2023 - 20:22:58 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 363 ms. Found 2 JPA repository interfaces.
+11 окт. 2023 - 20:23:01 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8789 (http)
+11 окт. 2023 - 20:23:01 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+11 окт. 2023 - 20:23:01 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.10]
+11 окт. 2023 - 20:23:02 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+11 окт. 2023 - 20:23:02 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 7535 ms
+11 окт. 2023 - 20:23:03 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+11 окт. 2023 - 20:23:03 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5d66e944
+11 окт. 2023 - 20:23:03 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+11 окт. 2023 - 20:23:04 INFO  [main] liquibase.database - Set default schema name to public
+11 окт. 2023 - 20:23:07 INFO  [main] liquibase.changelog - Reading from public.databasechangelog
+11 окт. 2023 - 20:23:08 INFO  [main] liquibase.changelog - Reading from public.databasechangelog
+11 окт. 2023 - 20:23:08 INFO  [main] liquibase.util - UPDATE SUMMARY
+11 окт. 2023 - 20:23:08 INFO  [main] liquibase.util - Run:                          0
+11 окт. 2023 - 20:23:08 INFO  [main] liquibase.util - Previously run:               5
+11 окт. 2023 - 20:23:08 INFO  [main] liquibase.util - Filtered out:                 0
+11 окт. 2023 - 20:23:08 INFO  [main] liquibase.util - -------------------------------
+11 окт. 2023 - 20:23:08 INFO  [main] liquibase.util - Total change sets:            5
+
+11 окт. 2023 - 20:23:08 INFO  [main] liquibase.util - Update summary generated
+11 окт. 2023 - 20:23:08 INFO  [main] liquibase.lockservice - Successfully released change log lock
+11 окт. 2023 - 20:23:08 INFO  [main] liquibase.command - Command execution complete
+11 окт. 2023 - 20:23:08 INFO  [main] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+11 окт. 2023 - 20:23:09 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.5.Final
+11 окт. 2023 - 20:23:09 INFO  [main] org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+11 окт. 2023 - 20:23:10 INFO  [main] o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+11 окт. 2023 - 20:23:10 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+11 окт. 2023 - 20:23:11 INFO  [main] o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+11 окт. 2023 - 20:23:14 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+11 окт. 2023 - 20:23:14 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+11 окт. 2023 - 20:23:16 INFO  [main] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+11 окт. 2023 - 20:23:16 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+11 окт. 2023 - 20:23:18 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','DIRECTOR')] for Mvc [pattern='/person/add']
+11 окт. 2023 - 20:23:18 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','DIRECTOR')] for Mvc [pattern='/journal/get']
+11 окт. 2023 - 20:23:18 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','DIRECTOR')] for Mvc [pattern='/journal/deleteId']
+11 окт. 2023 - 20:23:18 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','DIRECTOR')] for Mvc [pattern='/journal/deleteAll']
+11 окт. 2023 - 20:23:18 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','DIRECTOR')] for Mvc [pattern='/journal/edit']
+11 окт. 2023 - 20:23:18 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','USER','DIRECTOR')] for Mvc [pattern='/']
+11 окт. 2023 - 20:23:18 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','USER','DIRECTOR')] for Mvc [pattern='/journal/homepage']
+11 окт. 2023 - 20:23:18 DEBUG [main] o.s.s.w.a.e.ExpressionBasedFilterInvocationSecurityMetadataSource - Adding web access control expression [hasAnyAuthority('ADMIN','USER','DIRECTOR')] for Mvc [pattern='/journal/get/by']
+11 окт. 2023 - 20:23:18 INFO  [main] o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@753b6846, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@15961527, org.springframework.security.web.context.SecurityContextHolderFilter@b45e264, org.springframework.security.web.header.HeaderWriterFilter@490e1017, org.springframework.security.web.authentication.logout.LogoutFilter@61ee9672, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@37bafef8, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@4fd2b418, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@22b00077, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@466d6ea5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@52db9036, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@28b36817, org.springframework.security.web.access.ExceptionTranslationFilter@51cf17e8, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@450b99f2]
+11 окт. 2023 - 20:23:18 INFO  [main] o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@71c9c7f3, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6979e9b8, org.springframework.security.web.context.SecurityContextHolderFilter@51b1732d, org.springframework.security.web.header.HeaderWriterFilter@780e6b63, org.springframework.security.web.authentication.logout.LogoutFilter@3b67c637, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@30be77cd, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@35b8b69f, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@771deee6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@65b639e1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3e668743, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@345effd7, org.springframework.security.web.access.ExceptionTranslationFilter@6d86d1ad, org.springframework.security.web.access.intercept.AuthorizationFilter@6dbe6891]
+11 окт. 2023 - 20:23:20 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8789 (http) with context path ''
+11 окт. 2023 - 20:23:20 INFO  [main] v.c.O.OutfitsCompletedOfLogApplication - Started OutfitsCompletedOfLogApplication in 28.356 seconds (process running for 32.069)
+11 окт. 2023 - 20:23:30 INFO  [http-nio-8789-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+11 окт. 2023 - 20:23:30 INFO  [http-nio-8789-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+11 окт. 2023 - 20:23:30 INFO  [http-nio-8789-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+11 окт. 2023 - 20:23:30 DEBUG [http-nio-8789-exec-1] o.s.security.web.FilterChainProxy - Securing GET /journal/get?
+11 окт. 2023 - 20:23:30 DEBUG [http-nio-8789-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+11 окт. 2023 - 20:23:30 DEBUG [http-nio-8789-exec-1] o.s.s.w.a.i.FilterSecurityInterceptor - Failed to authorize filter invocation [GET /journal/get?] with attributes [hasAnyAuthority('ADMIN','DIRECTOR')]
+11 окт. 2023 - 20:23:30 WARN  [http-nio-8789-exec-1] o.a.c.util.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [243] milliseconds.
+11 окт. 2023 - 20:23:30 DEBUG [http-nio-8789-exec-1] o.s.s.w.s.HttpSessionRequestCache - Saved request http://localhost:8789/journal/get?continue to session
+11 окт. 2023 - 20:23:30 DEBUG [http-nio-8789-exec-1] o.s.s.web.DefaultRedirectStrategy - Redirecting to http://localhost:8789/login
+11 окт. 2023 - 20:23:30 DEBUG [http-nio-8789-exec-2] o.s.security.web.FilterChainProxy - Securing GET /login
+11 окт. 2023 - 20:23:41 DEBUG [http-nio-8789-exec-3] o.s.security.web.FilterChainProxy - Securing POST /login
+11 окт. 2023 - 20:23:42 DEBUG [http-nio-8789-exec-3] o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+11 окт. 2023 - 20:23:42 DEBUG [http-nio-8789-exec-3] o.s.s.w.a.s.ChangeSessionIdAuthenticationStrategy - Changed session id from 6E9C217A1B2686E46367C9AA31276E3D
+11 окт. 2023 - 20:23:42 DEBUG [http-nio-8789-exec-3] o.s.s.w.c.HttpSessionSecurityContextRepository - Stored SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@3813e0ba, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6E9C217A1B2686E46367C9AA31276E3D], Granted Authorities=[ADMIN]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@4893f9fb]
+11 окт. 2023 - 20:23:42 DEBUG [http-nio-8789-exec-3] o.s.s.w.a.UsernamePasswordAuthenticationFilter - Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@3813e0ba, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6E9C217A1B2686E46367C9AA31276E3D], Granted Authorities=[ADMIN]]
+11 окт. 2023 - 20:23:42 DEBUG [http-nio-8789-exec-3] o.s.s.web.DefaultRedirectStrategy - Redirecting to http://localhost:8789/journal/get?continue
+11 окт. 2023 - 20:23:42 DEBUG [http-nio-8789-exec-4] o.s.security.web.FilterChainProxy - Securing GET /journal/get?continue
+11 окт. 2023 - 20:23:42 DEBUG [http-nio-8789-exec-4] o.s.s.w.s.HttpSessionRequestCache - Loaded matching saved request http://localhost:8789/journal/get?continue
+11 окт. 2023 - 20:23:42 DEBUG [http-nio-8789-exec-4] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@3813e0ba, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6E9C217A1B2686E46367C9AA31276E3D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:23:42 DEBUG [http-nio-8789-exec-4] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /journal/get?continue] with attributes [hasAnyAuthority('ADMIN','DIRECTOR')]
+11 окт. 2023 - 20:23:42 DEBUG [http-nio-8789-exec-4] o.s.security.web.FilterChainProxy - Secured GET /journal/get?continue
+11 окт. 2023 - 20:23:43 DEBUG [http-nio-8789-exec-5] o.s.security.web.FilterChainProxy - Securing GET /style/journal.css
+11 окт. 2023 - 20:23:43 DEBUG [http-nio-8789-exec-5] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized public object filter invocation [GET /style/journal.css]
+11 окт. 2023 - 20:23:43 DEBUG [http-nio-8789-exec-5] o.s.security.web.FilterChainProxy - Secured GET /style/journal.css
+11 окт. 2023 - 20:23:43 DEBUG [http-nio-8789-exec-5] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@3813e0ba, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6E9C217A1B2686E46367C9AA31276E3D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:23:43 DEBUG [http-nio-8789-exec-5] o.s.security.web.FilterChainProxy - Securing GET /error
+11 окт. 2023 - 20:23:43 DEBUG [http-nio-8789-exec-5] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized public object filter invocation [GET /error]
+11 окт. 2023 - 20:23:43 DEBUG [http-nio-8789-exec-5] o.s.security.web.FilterChainProxy - Secured GET /error
+11 окт. 2023 - 20:23:44 DEBUG [http-nio-8789-exec-5] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@3813e0ba, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6E9C217A1B2686E46367C9AA31276E3D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:23:50 DEBUG [http-nio-8789-exec-6] o.s.security.web.FilterChainProxy - Securing GET /journal/homepage?
+11 окт. 2023 - 20:23:50 DEBUG [http-nio-8789-exec-6] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@3813e0ba, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6E9C217A1B2686E46367C9AA31276E3D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:23:50 DEBUG [http-nio-8789-exec-6] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /journal/homepage?] with attributes [hasAnyAuthority('ADMIN','USER','DIRECTOR')]
+11 окт. 2023 - 20:23:50 DEBUG [http-nio-8789-exec-6] o.s.security.web.FilterChainProxy - Secured GET /journal/homepage?
+11 окт. 2023 - 20:23:59 DEBUG [http-nio-8789-exec-7] o.s.security.web.FilterChainProxy - Securing GET /person/add?
+11 окт. 2023 - 20:23:59 DEBUG [http-nio-8789-exec-7] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@3813e0ba, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6E9C217A1B2686E46367C9AA31276E3D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:23:59 DEBUG [http-nio-8789-exec-7] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /person/add?] with attributes [hasAnyAuthority('ADMIN','DIRECTOR')]
+11 окт. 2023 - 20:23:59 DEBUG [http-nio-8789-exec-7] o.s.security.web.FilterChainProxy - Secured GET /person/add?
+11 окт. 2023 - 20:24:16 DEBUG [http-nio-8789-exec-8] o.s.security.web.FilterChainProxy - Securing GET /journal/homepage?
+11 окт. 2023 - 20:24:16 DEBUG [http-nio-8789-exec-8] o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=voe.company.OutfitsCompletedOfLog.service.UserMagazineDetails@3813e0ba, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=6E9C217A1B2686E46367C9AA31276E3D], Granted Authorities=[ADMIN]]]
+11 окт. 2023 - 20:24:16 DEBUG [http-nio-8789-exec-8] o.s.s.w.a.i.FilterSecurityInterceptor - Authorized filter invocation [GET /journal/homepage?] with attributes [hasAnyAuthority('ADMIN','USER','DIRECTOR')]
+11 окт. 2023 - 20:24:16 DEBUG [http-nio-8789-exec-8] o.s.security.web.FilterChainProxy - Secured GET /journal/homepage?
+11 окт. 2023 - 20:24:50 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+11 окт. 2023 - 20:24:50 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+11 окт. 2023 - 20:24:50 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

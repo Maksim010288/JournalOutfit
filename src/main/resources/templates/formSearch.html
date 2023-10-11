@@ -3,11 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <style>
+        .homepage{
+            float: left;
+            margin-right: 5px;
+        }
+    </style>
 </head>
 <body>
-<form action="/journal/homepage" method="get">
+<form class="homepage" action="/journal/homepage" method="get">
     <label for="onHomepage">
         <input type="submit" id="onHomepage" value="На головну">
+    </label>
+</form>
+<form class="out" action="/journal/logout" method="get">
+    <label for="outHomepage">
+        <input type="submit" id="outHomepage" value="Вийти">
     </label>
 </form>
 <form action="/journal/get/by" method="get">

@@ -12,25 +12,31 @@
             padding: 20px 20px 20px 20px;
         }
 
-        #panel_control_but1, #panel_control_but2, #panel_control_but3, #panel_control_but4, #panel_control_but5
+        #panel_control_but1, #panel_control_but4, #panel_control_but5
         {
             position: relative;
-            right:-55%;
+            left:70%;
             border: none;
             background: none;
             color: black;
             margin-left: 20px;
             float: left;
         }
+        .out{
+            float: left;
+            margin-right: 5px;
+        }
     </style>
 </head>
 <body>
 <div id="panel_control">
+    <form class="out" action="/journal/logout" method="get">
+        <label for="outHomepage">
+            <input type="submit" id="outHomepage" value="Вийти">
+        </label>
+    </form>
     <form action="/journal/get">
         <input id="panel_control_but1" type="submit" value="Додати запис">
-    </form>
-    <form action="/journal/edit" method="get">
-        <input id="panel_control_but2" type="submit" value="Редагувати">
     </form>
     <form action="/journal/get/by">
         <input id="panel_control_but4" type="submit" value="Пошук">

@@ -4,6 +4,11 @@
   <title>Spring Security Example </title>
 </head>
 <body>
+<form class="out" action="/journal/logout" method="get">
+  <label for="outHomepage">
+    <input type="submit" id="outHomepage" value="Вийти">
+  </label>
+</form>
 <div th:if="${param.error}">
   Invalid username and password.
 </div>

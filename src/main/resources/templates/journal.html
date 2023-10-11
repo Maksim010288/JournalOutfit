@@ -39,15 +39,25 @@
             font-family: sans-serif;
             color: darkgoldenrod;
         }
+
+        .onHomepage{
+            float: left;
+            margin-right: 5px;
+        }
     </style>
 </head>
 <body>
 <div th:each="ch:${check}">
     <p th:text="${ch}"></p>
 </div>
-<form action="/journal/homepage" method="get">
+<form class="onHomepage" action="/journal/homepage" method="get">
     <label for="onHomepage">
         <input type="submit" id="onHomepage" value="На головну">
+    </label>
+</form>
+<form class="out" action="/journal/logout" method="get">
+    <label for="outHomepage">
+        <input type="submit" id="outHomepage" value="Вийти">
     </label>
 </form>
 <h1>Створити запис</h1>
