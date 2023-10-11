@@ -116,8 +116,13 @@ public class MagazineController {
         model.addAttribute("list_name", magazineService.findByName(etc_name));
         model.addAttribute("list_date", magazineService.findByDate(etc_date));
         magazineService.deleteById(Long.parseLong(id_del));
-        return"formSearch";
-}
+        return "formSearch";
+    }
+
+    @GetMapping("journal/logout")
+    public String logout() {
+        return "redirect:/logout";
+    }
 
     @GetMapping("journal/homepage")
     @PreAuthorize("hasAnyAuthorize('ADMIN', 'USER')")
