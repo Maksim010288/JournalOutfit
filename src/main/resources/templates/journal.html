@@ -116,8 +116,8 @@
             <td class="td" th:text="${en.getDate()}"></td>
             <td class="td" th:text="${en.getTypeEac()}"></td>
             <td class="td" th:text="${en.getDispatcherNameEts()}"></td>
-            <td class="td" th:text="${en.getJobDescription()}"></td>
-            <td class="td" th:text="${en.getPerformer()}"></td>
+            <td class="td" th:text="${en.getJobDescription()}" style="width: 450px"></td>
+            <td class="td" th:text="${en.getPerformer()}" style="width: 150px"></td>
             <td>
                 <form action="/journal/edit" method="get">
                     <input type="hidden" th:value="${en.getId()}" name="id">
