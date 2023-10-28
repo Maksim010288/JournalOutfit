@@ -1,4 +1,4 @@
-package voe.company.OutfitsCompletedOfLog;
+package voe.company.OutfitsCompletedLog;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

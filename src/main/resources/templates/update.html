@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Редагувати</title>
+</head>
+<body>
+<form action="/journal/homepage" method="get">
+    <label for="onHomepage">
+        <input type="submit" id="onHomepage" value="На головну">
+    </label>
+</form>
+<form method="post">
+    <div th:each="el : ${journal}">
+        <input class="inp" type="number" name="numberName" th:value="${el.getNumberOutfit()}"><br/>
+        <input class="inpDate" type="date" name="date" th:value="${el.getDate()}"><br/>
+        <select class="inp_etc" name="type_etc">
+            <option>ЗТП</option>
+            <option>КТП</option>
+            <option>РП</option>
+        </select>
+        <input class="inpNum" type="number" name="number_etc" th:value="${el.getDispatcherNameEts()}"><br/>
+        <select class="mayster" name="performer">
+            <option>Василь ЛУЩ</option>
+            <option>Альберт РЕВЯКОВ</option>
+        </select><br/>
+        <textarea class="area" name="description" cols="92" rows="4" th:text="${el.getJobDescription()}"/><br/>
+        <button id="but" type="submit" name="record">Обновити</button>
+    </div>
+</form>
+</body>
+</html>

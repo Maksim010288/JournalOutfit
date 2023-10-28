@@ -1,9 +1,8 @@
-package voe.company.OutfitsCompletedOfLog.repository;
+package voe.company.OutfitsCompletedLog.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-import voe.company.OutfitsCompletedOfLog.entity.UsersEntity;
+import voe.company.OutfitsCompletedLog.entity.UsersEntity;
 
 @Repository
 public interface UserRepository extends JpaRepository<UsersEntity, Long> {

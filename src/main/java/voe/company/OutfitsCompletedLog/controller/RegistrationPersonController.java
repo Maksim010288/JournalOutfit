@@ -1,4 +1,4 @@
-package voe.company.OutfitsCompletedOfLog.controller;
+package voe.company.OutfitsCompletedLog.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import voe.company.OutfitsCompletedOfLog.entity.UsersEntity;
-import voe.company.OutfitsCompletedOfLog.service.UsersService;
+import voe.company.OutfitsCompletedLog.entity.UsersEntity;
+import voe.company.OutfitsCompletedLog.service.UsersService;
 
 @Controller
 @RequestMapping("/")

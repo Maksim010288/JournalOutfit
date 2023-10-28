@@ -1,17 +1,14 @@
-package voe.company.OutfitsCompletedOfLog.service;
+package voe.company.OutfitsCompletedLog.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import voe.company.OutfitsCompletedOfLog.exeption.JournalException;
-import voe.company.OutfitsCompletedOfLog.entity.JournalEntity;
+import voe.company.OutfitsCompletedLog.exeption.JournalException;
+import voe.company.OutfitsCompletedLog.entity.JournalEntity;
 
-import voe.company.OutfitsCompletedOfLog.repository.CrudRepository;
-import voe.company.OutfitsCompletedOfLog.repository.MagazineRepository;
+import voe.company.OutfitsCompletedLog.repository.CrudRepository;
+import voe.company.OutfitsCompletedLog.repository.MagazineRepository;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 

@@ -1,10 +1,10 @@
-package voe.company.OutfitsCompletedOfLog.service;
+package voe.company.OutfitsCompletedLog.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import voe.company.OutfitsCompletedOfLog.entity.UsersEntity;
+import voe.company.OutfitsCompletedLog.entity.UsersEntity;
 
 import java.util.Collection;
 import java.util.Collections;

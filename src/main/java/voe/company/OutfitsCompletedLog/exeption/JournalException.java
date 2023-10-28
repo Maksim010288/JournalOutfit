@@ -1,9 +1,9 @@
-package voe.company.OutfitsCompletedOfLog.exeption;
+package voe.company.OutfitsCompletedLog.exeption;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-import voe.company.OutfitsCompletedOfLog.entity.JournalEntity;
+import voe.company.OutfitsCompletedLog.entity.JournalEntity;
 
 import java.util.Optional;
 

@@ -1,4 +1,4 @@
-package voe.company.OutfitsCompletedOfLog.entity;
+package voe.company.OutfitsCompletedLog.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

@@ -1,6 +1,6 @@
-package voe.company.OutfitsCompletedOfLog;
+package voe.company.OutfitsCompletedLog;
 
-import voe.company.OutfitsCompletedOfLog.entity.JournalEntity;
+import voe.company.OutfitsCompletedLog.entity.JournalEntity;
 
 import java.util.logging.Logger;
 

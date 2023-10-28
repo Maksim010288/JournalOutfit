@@ -1,10 +1,10 @@
-package voe.company.OutfitsCompletedOfLog.service;
+package voe.company.OutfitsCompletedLog.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import voe.company.OutfitsCompletedOfLog.entity.UsersEntity;
-import voe.company.OutfitsCompletedOfLog.repository.UserRepository;
+import voe.company.OutfitsCompletedLog.entity.UsersEntity;
+import voe.company.OutfitsCompletedLog.repository.UserRepository;
 
 import java.util.Collection;
 

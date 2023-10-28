@@ -1,4 +1,4 @@
-package voe.company.OutfitsCompletedOfLog.controller;
+package voe.company.OutfitsCompletedLog.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -6,10 +6,10 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import voe.company.OutfitsCompletedOfLog.CheckOut;
-import voe.company.OutfitsCompletedOfLog.entity.JournalEntity;
-import voe.company.OutfitsCompletedOfLog.security.WebSecurityConfigurerInJdbc;
-import voe.company.OutfitsCompletedOfLog.service.MagazineService;
+import voe.company.OutfitsCompletedLog.CheckOut;
+import voe.company.OutfitsCompletedLog.entity.JournalEntity;
+import voe.company.OutfitsCompletedLog.security.WebSecurityConfigurerInJdbc;
+import voe.company.OutfitsCompletedLog.service.MagazineService;
 
 import java.util.ArrayList;
 import java.util.List;

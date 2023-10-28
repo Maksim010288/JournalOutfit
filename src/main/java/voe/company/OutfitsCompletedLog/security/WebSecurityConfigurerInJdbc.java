@@ -1,4 +1,4 @@
-package voe.company.OutfitsCompletedOfLog.security;
+package voe.company.OutfitsCompletedLog.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -9,8 +9,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import voe.company.OutfitsCompletedOfLog.entity.UsersEntity;
-import voe.company.OutfitsCompletedOfLog.service.UserDetService;
+import voe.company.OutfitsCompletedLog.entity.UsersEntity;
+import voe.company.OutfitsCompletedLog.service.UserDetService;
 
 @Configuration
 @EnableWebSecurity
